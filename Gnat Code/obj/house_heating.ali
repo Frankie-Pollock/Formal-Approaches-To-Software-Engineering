@@ -1,0 +1,84 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCHING_CALLS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U house_heating%b	house_heating.adb	dee2af81 OO PK IL
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U house_heating%s	house_heating.ads	86cc537a EE OO PF PK IL
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
+D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D house_heating.ads	20240429110128 86cc537a house_heating%s
+D house_heating.adb	20240503095826 582efcfb house_heating%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520051136 2ffa5114 system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [update house_heating 18 14 none]
+G c Z s b [createheating house_heating 30 13 none]
+G c Z s s [househeatingDA house_heating 13 9 none]
+G c Z s s [househeatingDF house_heating 13 9 none]
+G c Z s s [househeatingIP house_heating 13 9 none]
+X 9 house_heating.ads
+1K9*house_heating 33l5 33e18 10|1b14 28l5 28t18
+4E9*HeatingStatus 4e35 15r16
+4n27*On{4E9} 21r21 25r21 10|8r25 9r27 14r24
+4n31*Off{4E9} 22r21 24r21 10|7r24 10r25 16r27 23r43
+5I9*Temperature<short_short_integer> 7r24 8r25 14r14 19r31
+7i4*TurnOnAt{5I9} 21r44 25r45 10|7r45
+8i4*TurnOffAt{5I9} 22r45 24r46 10|9r47
+9N4*TempIncrease 21r85 10|15r35
+10N4*TempDecrease 22r87 10|17r35
+13R9*HouseHeating 16e14 18p14 18r36 30p13 30r34 10|4r36 22r34 23r16
+14i7*temp{5I9} 19r23 21r33 21r62 21r74 22r34 22r64 22r76 24r34 25r33 10|7r37
+. 9r39 15m15 15r28 17m15 17r28 23m48
+15e7*status{4E9} 21r12 22r12 24r12 25r12 10|7r15 8m15 9r18 10m15 14r15 16r18
+. 23m33
+18U14*Update 18=22 10|4b14 19l8 19t14
+18r22 This{13R9} 19r18 21r7 21r28 21r57 21r69 22r7 22r29 22r59 22r71 24r7
+. 24r29 25r7 25r28 10|4b22 7r10 7r32 8m10 9r13 9r34 10m10 14r10 15m10 15r23
+. 16r13 17m10 17r23
+30V13*CreateHeating{13R9} 10|22b13 26l8 26t21
+X 10 house_heating.adb
+23r7 result{9|13R9} 25r14
+

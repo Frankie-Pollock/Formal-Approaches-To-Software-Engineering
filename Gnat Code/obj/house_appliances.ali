@@ -1,0 +1,80 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCHING_CALLS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U house_appliances%b	house_appliances.adb	d4edb36f OO PK IL
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U house_appliances%s	house_appliances.ads	a1a9437b EE OO PF PK IL
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
+D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D house_appliances.ads	20240429104240 a1a9437b house_appliances%s
+D house_appliances.adb	20240503095844 7544f014 house_appliances%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520051136 2ffa5114 system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [unlocklock house_appliances 12 14 none]
+G c Z s b [createfridge house_appliances 20 13 none]
+G c Z s s [houseappliancesDA house_appliances 7 9 none]
+G c Z s s [houseappliancesDF house_appliances 7 9 none]
+G c Z s s [houseappliancesIP house_appliances 7 9 none]
+X 9 house_appliances.ads
+1K9*house_appliances 23l5 23e21 10|1b14 28l5 28t21
+4E9*Unlocked 4e35 8r24
+4n22*Fridge{4E9} 14r30 16r31 10|6r32 12r33 23r54
+4n30*Oven{4E9} 14r62 17r31 10|8r33 10r35 16r33
+5E9*Locked 5e33 9r22
+5n20*Fridge{5E9} 17r60 10|9r31
+5n28*Oven{5E9} 16r62 10|13r31 23r78
+7R9*HouseAppliances 10e14 12p14 12r40 20p13 20r33 10|3r40 21r33 23r16
+8e7*statusUnlocked{4E9} 14r13 14r45 16r14 17r14 10|6r15 8m15 10r18 12m15
+. 16m15 23m36
+9e7*statusLocked{5E9} 16r47 17r45 10|9m15 13m15 23m62
+12U14*UnlockLock 12=26 10|3b14 18l8 18t18
+12r26 This{7R9} 14r8 14r40 16r9 16r42 17r9 17r40 10|3b26 6r10 8m10 9m10 10r13
+. 12m10 13m10 16m10
+20V13*CreateFridge{7R9} 10|21b13 26l8 26t20
+X 10 house_appliances.adb
+23r7 result{9|7R9} 25r14
+

@@ -1,0 +1,24 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Coursework\house.gpr
+20240423101018 f1ce67b91abd5f818150b59bf2b26299
+[BOUND OBJECT FILES]
+C:\Coursework\obj\clean_air.o
+C:\Coursework\obj\house_appliances.o
+C:\Coursework\obj\house_exterior.o
+C:\Coursework\obj\house_heating.o
+C:\Coursework\obj\house.o
+C:\Coursework\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Coursework\obj\
+-LC:\Coursework\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

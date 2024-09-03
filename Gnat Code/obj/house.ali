@@ -1,0 +1,128 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCHING_CALLS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U house%b		house.adb		eb8681b2 OO PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+
+U house%s		house.ads		51bc8a67 EE OO PF PK IL
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.streams%s		a-stream.adb		a-stream.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W clean_air%s		clean_air.adb		clean_air.ali
+W house_appliances%s	house_appliances.adb	house_appliances.ali
+W house_exterior%s	house_exterior.adb	house_exterior.ali
+W house_heating%s	house_heating.adb	house_heating.ali
+Z system%s		system.ads		system.ali
+Z system.put_images%s	s-putima.adb		s-putima.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
+D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D clean_air.ads		20240429163654 8420ccc6 clean_air%s
+D house.ads		20240503094700 61442612 house%s
+D house.adb		20240503095214 8ac2a7a0 house%b
+D house_appliances.ads	20240429104240 a1a9437b house_appliances%s
+D house_exterior.ads	20240427221538 93bd70b2 house_exterior%s
+D house_heating.ads	20240429110128 86cc537a house_heating%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520051136 2ffa5114 system%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [is_carbon_valid house 18 13 none]
+G c Z s b [update house 20 14 none]
+G c Z s s [houseDA house 11 9 none]
+G c Z s s [houseDF house 11 9 none]
+G c Z s s [houseIP house 11 9 none]
+G r c none [update house 20 14 none] [update house_heating 18 14 none]
+G r c none [update house 20 14 none] [updatelocked house_exterior 10 14 none]
+G r c none [update house 20 14 none] [updateunlocked house_exterior 16 14 none]
+G r c none [update house 20 14 none] [update clean_air 18 14 none]
+G r c none [update house 20 14 none] [unlocklock house_appliances 12 14 none]
+G r c none [houseIP house 11 9 none] [createheating house_heating 30 13 none]
+G r c none [houseIP house 11 9 none] [createexteriors house_exterior 20 13 none]
+G r c none [houseIP house 11 9 none] [createaircon clean_air 26 13 none]
+G r c none [houseIP house 11 9 none] [createfridge house_appliances 20 13 none]
+X 9 clean_air.ads
+1K9*Clean_Air 29e14 10|3w6 3r21
+5I9*Carbon<short_short_integer> 10|28r25 36r24 11|7r31
+6E9*AirCon 6e40 10|29r27
+13R9*CleanAir 16e14 10|14r13
+14i7*carb{5I9} 10|28r17 36r16 11|7r23
+15e7*status{6E9} 10|29r17
+18U14*Update 11|29s16
+26V13*CreateAirCon{13R9} 10|14s25
+X 10 house.ads
+6K9*house 38l5 38e10 11|1b14 32l5 32t10
+11R9*House 16e14 18p13 18r36 20p14 20r36 11|3r33 12r36
+12r7*heating{14|13R9} 23r13 24r13 33r14 34r14 11|14m12 17r15 22r18
+13r7*exterior{13|6R9} 25r13 33r43 34r44 11|19r18 20m31 24r18 25m33
+14r7*air{9|13R9} 28r13 29r13 36r12 11|7r19 29m12
+15r7*appliances{12|7R9} 26r13 27r13 11|30m12
+18V13*Is_Carbon_Valid{boolean} 18>30 11|3b10 9l8 9t23
+18r30 This{11R9} 11|3b27 7r14
+20U14*Update 20=22 11|12b14 31l8 31t14
+20r22 This{11R9} 23r8 24r8 25r8 26r8 27r8 28r8 29r8 33r9 33r38 34r9 34r39
+. 36r7 11|12b22 14m7 14r7 17r10 19r13 20m26 20r26 22r13 24r13 25m28 25r28
+. 29m7 29r7 30m7 30r7
+X 12 house_appliances.ads
+1K9*house_appliances 10|4w6 4r28 12|23e21
+4E9*Unlocked 10|26r42 12|4e35
+5E9*Locked 10|27r40 12|5e33
+7R9*HouseAppliances 10|15r19 12|10e14
+8e7*statusUnlocked{4E9} 10|26r24
+9e7*statusLocked{5E9} 10|27r24
+12U14*UnlockLock 11|30s23
+20V13*CreateFridge{7R9} 10|15s38
+X 13 house_exterior.ads
+1K9*house_exterior 10|2w6 2r26 13|22e19
+4E9*ExteriorStatus 10|25r32 13|4e43
+4n28*Openable{4E9} 10|34r62 11|19r36
+4n38*Shut{4E9} 10|33r61 11|24r36
+6R9*HouseExterior 10|13r18 13|8e14
+7e7*status{4E9} 10|25r22 33r52 34r53 11|19r27 24r27
+10U14*UpdateLocked 11|20s13
+16U14*UpdateUnlocked 11|25s13
+20V13*CreateExteriors{6R9} 10|13s35
+X 14 house_heating.ads
+1K9*house_heating 10|1w6 1r25 14|33e18
+4E9*HeatingStatus 10|24r31 14|4e35
+4n27*On{4E9} 10|33r31 11|17r32
+4n31*Off{4E9} 10|34r31 11|22r35
+5I9*Temperature<short_short_integer> 10|23r29
+13R9*HouseHeating 10|12r17 14|16e14
+14i7*temp{5I9} 10|23r21
+15e7*status{4E9} 10|24r21 33r22 34r22 11|17r23 22r26
+18U14*Update 11|14s20
+30V13*CreateHeating{13R9} 10|12s33
+
