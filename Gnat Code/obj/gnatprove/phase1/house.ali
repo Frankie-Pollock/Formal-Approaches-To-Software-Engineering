@@ -1,0 +1,165 @@
+V "GNAT Lib v2021"
+A -x
+A ada
+A -gnatA
+A -gnatc
+P GP FX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U house%b		house.adb		eb8681b2 OO PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+
+U house%s		house.ads		51bc8a67 OO PK IL
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W clean_air%s		clean_air.adb		clean_air.ali
+W house_appliances%s	house_appliances.adb	house_appliances.ali
+W house_exterior%s	house_exterior.adb	house_exterior.ali
+W house_heating%s	house_heating.adb	house_heating.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D clean_air.ads		20240429163654 8420ccc6 clean_air%s
+D house.ads		20240503094700 61442612 house%s
+D house.adb		20240503095214 8ac2a7a0 house%b
+D house_appliances.ads	20240429104240 a1a9437b house_appliances%s
+D house_exterior.ads	20240427221538 93bd70b2 house_exterior%s
+D house_heating.ads	20240429110128 86cc537a house_heating%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D system.ads		20210520051134 2ffa5114 system%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a Z
+X 5 clean_air.ads
+1K9*Clean_Air 29e14 6|3w6 3r21
+5I9*Carbon<short_short_integer> 6|28r25 36r24 7|7r31
+6E9*AirCon 6e40 6|29r27
+13R9*CleanAir 16e14 6|14r13
+14i7*carb{5I9} 6|28r17 36r16 7|7r23
+15e7*status{6E9} 6|29r17
+18U14*Update 7|29s16
+26V13*CreateAirCon{13R9} 6|14s25
+X 6 house.ads
+6K9*house 38l5 38e10 7|1b14 32l5 32t10
+11R9*House 16e14 18p13 18r36 20p14 20r36 7|3r33 12r36
+12r7*heating{10|13R9} 23r13 24r13 33r14 34r14 7|14m12 17r15 22r18
+13r7*exterior{9|6R9} 25r13 33r43 34r44 7|19r18 20m31 24r18 25m33
+14r7*air{5|13R9} 28r13 29r13 36r12 7|7r19 29m12
+15r7*appliances{8|7R9} 26r13 27r13 7|30m12
+18V13*Is_Carbon_Valid{boolean} 18>30 7|3b10 9l8 9t23
+18r30 This{11R9} 7|3b27 7r14
+20U14*Update 20=22 7|12b14 31l8 31t14
+20r22 This{11R9} 23r8 24r8 25r8 26r8 27r8 28r8 29r8 33r9 33r38 34r9 34r39
+. 36r7 7|12b22 14m7 14r7 17r10 19r13 20m26 20r26 22r13 24r13 25m28 25r28
+. 29m7 29r7 30m7 30r7
+X 8 house_appliances.ads
+1K9*house_appliances 6|4w6 4r28 8|23e21
+4E9*Unlocked 6|26r42 8|4e35
+5E9*Locked 6|27r40 8|5e33
+7R9*HouseAppliances 6|15r19 8|10e14
+8e7*statusUnlocked{4E9} 6|26r24
+9e7*statusLocked{5E9} 6|27r24
+12U14*UnlockLock 7|30s23
+20V13*CreateFridge{7R9} 6|15s38
+X 9 house_exterior.ads
+1K9*house_exterior 6|2w6 2r26 9|22e19
+4E9*ExteriorStatus 6|25r32 9|4e43
+4n28*Openable{4E9} 6|34r62 7|19r36
+4n38*Shut{4E9} 6|33r61 7|24r36
+6R9*HouseExterior 6|13r18 9|8e14
+7e7*status{4E9} 6|25r22 33r52 34r53 7|19r27 24r27
+10U14*UpdateLocked 7|20s13
+16U14*UpdateUnlocked 7|25s13
+20V13*CreateExteriors{6R9} 6|13s35
+X 10 house_heating.ads
+1K9*house_heating 6|1w6 1r25 10|33e18
+4E9*HeatingStatus 6|24r31 10|4e35
+4n27*On{4E9} 6|33r31 7|17r32
+4n31*Off{4E9} 6|34r31 7|22r35
+5I9*Temperature<short_short_integer> 6|23r29
+13R9*HouseHeating 6|12r17 10|16e14
+14i7*temp{5I9} 6|23r21
+15e7*status{4E9} 6|24r21 33r22 34r22 7|17r23 22r26
+18U14*Update 7|14s20
+30V13*CreateHeating{13R9} 6|12s33
+
+QQ SPARKVERSION SPARK Community 2021 (20210519)
+GG EK_DIRECT_CALLS house__is_carbon_valid 0
+GG EK_GLOBALS house__is_carbon_valid local FALSE E_FUNCTION FALSE ORIGIN_FLOW 1 house proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS house__update 5 house_heating__update house_exterior__updatelocked house_exterior__updateunlocked clean_air__update house_appliances__unlocklock
+GG EK_GLOBALS house__update local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 house proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 3 house_heating__update clean_air__update house_appliances__unlocklock calls_conditional 2 house_exterior__updatelocked house_exterior__updateunlocked FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS house 0
+GG EK_GLOBALS house local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_var 0 FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE interfaces__rotate_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada__strings TRUE FALSE FALSE FALSE FALSE ada
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__to_unsigned_8 FALSE FALSE FALSE TRUE standard__unchecked_conversion TRUE ada___ada___ada__strings__utf_encoding__to_unsigned_8GP6061 VISIBLE_PART
+GG EK_FLOW_SCOPE house__update FALSE FALSE FALSE FALSE TRUE house VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__to_unsigned_32GP6260 TRUE FALSE FALSE FALSE TRUE ada___ada___ada__strings__utf_encoding PRIVATE_PART
+GG EK_FLOW_SCOPE house_exterior__updatelocked FALSE FALSE FALSE FALSE TRUE house_exterior VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__root_buffer_typePartial_DIC FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE clean_air__update FALSE FALSE FALSE FALSE TRUE clean_air VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__decrease_indent FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__from_utf_16 FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__utf_encoding PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__put FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE house_appliances__unlocklock FALSE FALSE FALSE FALSE TRUE house_appliances VISIBLE_PART
+GG EK_FLOW_SCOPE house_heating TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__shift_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__wide_put FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__to_unsigned_8GP6061 TRUE FALSE FALSE FALSE TRUE ada___ada___ada__strings__utf_encoding PRIVATE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__to_utf_16 FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__utf_encoding PRIVATE_PART
+GG EK_FLOW_SCOPE house_exterior__updateunlocked FALSE FALSE FALSE FALSE TRUE house_exterior VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__to_unsigned_16 FALSE FALSE FALSE TRUE standard__unchecked_conversion TRUE ada___ada___ada__strings__utf_encoding__to_unsigned_16GP6157 VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__wide_wide_put FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__raise_encoding_error FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__utf_encoding PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__put_utf_8 FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE house_exterior__createexteriors FALSE FALSE FALSE FALSE TRUE house_exterior VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__shift_right_arithmetic FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__wide_put_utf_16 FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE house TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__output_mapping TRUE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__to_unsigned_16GP6157 TRUE FALSE FALSE FALSE TRUE ada___ada___ada__strings__utf_encoding PRIVATE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE clean_air TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__encoding FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__utf_encoding VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE standard__unchecked_conversion FALSE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE house_appliances__createfridge FALSE FALSE FALSE FALSE TRUE house_appliances VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__new_line FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding__to_unsigned_32 FALSE FALSE FALSE TRUE standard__unchecked_conversion TRUE ada___ada___ada__strings__utf_encoding__to_unsigned_32GP6260 VISIBLE_PART
+GG EK_FLOW_SCOPE house_heating__update FALSE FALSE FALSE FALSE TRUE house_heating VISIBLE_PART
+GG EK_FLOW_SCOPE house_heating__createheating FALSE FALSE FALSE FALSE TRUE house_heating VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_left FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE clean_air__createaircon FALSE FALSE FALSE FALSE TRUE clean_air VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__current_indent FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE house_exterior TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__5 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers__increase_indent FALSE FALSE FALSE FALSE TRUE ada___ada___ada__strings__text_buffers VISIBLE_PART
+GG EK_FLOW_SCOPE interfaces__rotate_right__4 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE house_appliances TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE interfaces__rotate_right__3 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE ada___ada___ada__strings__utf_encoding TRUE FALSE FALSE FALSE FALSE ada___ada__strings
+GG EK_FLOW_SCOPE ada___ada___ada__strings__text_buffers TRUE FALSE FALSE FALSE FALSE ada___ada__strings
+GG EK_FLOW_SCOPE interfaces__rotate_right__2 FALSE FALSE FALSE FALSE TRUE interfaces VISIBLE_PART
+GG EK_FLOW_SCOPE house__is_carbon_valid FALSE FALSE FALSE FALSE TRUE house VISIBLE_PART
+GG EK_END_MARKER
