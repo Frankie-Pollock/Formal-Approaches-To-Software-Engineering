@@ -1,0 +1,779 @@
+(* Module for axiomatizing type "carbon" defined at clean_air.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__carbon
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type carbon  = <range 0 8>
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 8
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = carbon,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type carbon__ref  = { mutable carbon__content : carbon }
+  
+  function   carbon__ref_carbon__content__projection (a : carbon__ref)
+    requires {  } ensures  {  } returns carbon = a.carbon__content
+  
+  meta model_projection function carbon__ref_carbon__content__projection
+  
+  meta inline:no function carbon__ref_carbon__content__projection
+  
+  function   carbon__havoc (x : carbon__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "carbon" defined at clean_air.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__carbon__rep
+  
+  use        Clean_air__carbon
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  function   to_rep (x : Clean_air__carbon.carbon) requires { True } ensures 
+    { True } returns int = (Clean_air__carbon.carbon'int x)
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Clean_air__carbon.carbon,
+    predicate in_range = Clean_air__carbon.in_range, function to_rep = to_rep
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "aircon" defined at clean_air.ads:6, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__aircon
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type aircon  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = aircon,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type aircon__ref  = { mutable aircon__content : aircon }
+  
+  function   aircon__ref_aircon__content__projection (a : aircon__ref)
+    requires {  } ensures  {  } returns aircon = a.aircon__content
+  
+  meta model_projection function aircon__ref_aircon__content__projection
+  
+  meta inline:no function aircon__ref_aircon__content__projection
+  
+  function   aircon__havoc (x : aircon__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "aircon" defined at clean_air.ads:6, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__aircon__rep
+  
+  use        Clean_air__aircon
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Clean_air__aircon.aircon,
+    predicate in_range = Clean_air__aircon.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the record theory associated to type "cleanair" defined at clean_air.ads:13, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module Clean_air__cleanair__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        Clean_air__carbon
+  use        Clean_air__carbon__rep
+  use        Clean_air__aircon
+  use        Clean_air__aircon__rep
+  
+  type __split_fields  = { [model_trace:.981]
+                           [name:carb]rec__clean_air__cleanair__carb : Clean_air__carbon.carbon;
+                           [model_trace:.986]
+                           [name:status]rec__clean_air__cleanair__status : Clean_air__aircon.aircon;
+                           rec__ext__ : _gnatprove_standard.Main.__private }
+  
+  function [model_trace:.981] [name:carb] 
+    __split_fields_rec__clean_air__cleanair__carb__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    Clean_air__carbon.carbon = a.rec__clean_air__cleanair__carb
+  
+  meta model_projection function __split_fields_rec__clean_air__cleanair__carb__projection
+  
+  meta inline:no function __split_fields_rec__clean_air__cleanair__carb__projection
+  
+  function [model_trace:.986] [name:status] 
+    __split_fields_rec__clean_air__cleanair__status__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    Clean_air__aircon.aircon = a.rec__clean_air__cleanair__status
+  
+  meta model_projection function __split_fields_rec__clean_air__cleanair__status__projection
+  
+  meta inline:no function __split_fields_rec__clean_air__cleanair__status__projection
+  
+  function   __split_fields_rec__ext____projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    _gnatprove_standard.Main.__private = a.rec__ext__
+  
+  meta model_projection function __split_fields_rec__ext____projection
+  
+  meta inline:no function __split_fields_rec__ext____projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields; attr__tag : int }
+  
+  function   __rep___split_fields__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__projection
+  
+  meta inline:no function __rep___split_fields__projection
+  
+  function   __rep_attr__tag__projection (a : __rep) requires {  } ensures 
+    {  } returns int = a.attr__tag
+  
+  meta model_projection function __rep_attr__tag__projection
+  
+  meta inline:no function __rep_attr__tag__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   clean_air__cleanair__carb__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__clean_air__cleanair__carb_ (a : __rep) requires
+    { (clean_air__cleanair__carb__pred a) } ensures 
+    { (result = a.__split_fields.rec__clean_air__cleanair__carb) } returns
+    Clean_air__carbon.carbon
+  
+  function   clean_air__cleanair__status__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__clean_air__cleanair__status_ (a : __rep) requires
+    { (clean_air__cleanair__status__pred a) } ensures 
+    { (result = a.__split_fields.rec__clean_air__cleanair__status) } returns
+    Clean_air__aircon.aircon
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           (((Clean_air__carbon__rep.to_rep
+                a.__split_fields.rec__clean_air__cleanair__carb)
+               = (Clean_air__carbon__rep.to_rep
+                    b.__split_fields.rec__clean_air__cleanair__carb)) /\
+              ((Clean_air__aircon__rep.to_rep
+                  a.__split_fields.rec__clean_air__cleanair__status)
+                 = (Clean_air__aircon__rep.to_rep
+                      b.__split_fields.rec__clean_air__cleanair__status)))
+           then True  else False)
+  
+  function   __dispatch_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns bool
+
+end
+
+(* Module for axiomatizing type "cleanair" defined at clean_air.ads:13, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__cleanair
+  
+  use export Clean_air__cleanair__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type cleanair  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   __tag () requires {  } ensures  {  } returns int
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   clean_air__cleanair__carb__first__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   clean_air__cleanair__carb__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   clean_air__cleanair__carb__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom clean_air__cleanair__carb__first__bit_axiom : ((clean_air__cleanair__carb__first__bit
+                                                          ) >= 0)
+  
+  axiom clean_air__cleanair__carb__last__bit_axiom : ((clean_air__cleanair__carb__last__bit
+                                                         )
+                                                        > (clean_air__cleanair__carb__first__bit
+                                                             ))
+  
+  axiom clean_air__cleanair__carb__position_axiom : ((clean_air__cleanair__carb__position
+                                                        ) >= 0)
+  
+  function   clean_air__cleanair__status__first__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   clean_air__cleanair__status__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   clean_air__cleanair__status__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom clean_air__cleanair__status__first__bit_axiom : ((clean_air__cleanair__status__first__bit
+                                                            ) >= 0)
+  
+  axiom clean_air__cleanair__status__last__bit_axiom : ((clean_air__cleanair__status__last__bit
+                                                           )
+                                                          > (clean_air__cleanair__status__first__bit
+                                                               ))
+  
+  axiom clean_air__cleanair__status__position_axiom : ((clean_air__cleanair__status__position
+                                                          ) >= 0)
+  
+  function   user_eq (a : cleanair b : cleanair) requires { True } ensures 
+    { True } returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns cleanair
+  
+  type cleanair__ref  = { mutable cleanair__content : cleanair }
+  
+  function   cleanair__ref_cleanair__content__projection (a : cleanair__ref)
+    requires {  } ensures  {  } returns cleanair = a.cleanair__content
+  
+  meta model_projection function cleanair__ref_cleanair__content__projection
+  
+  meta inline:no function cleanair__ref_cleanair__content__projection
+  
+  function   cleanair__havoc (x : cleanair__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module for defining a ref holding the value of variable "this" defined at clean_air.ads:18, created in Gnat2Why.Decls.Translate_Variable *)
+module Clean_air__update__this
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Clean_air__cleanair
+  
+  val this__split_fields [model_projected] [model_trace:993]
+  [name:This] [sloc:clean_air.ads:18]: Clean_air__cleanair.__split_fields
+  
+  function  [sloc:clean_air.ads:18] this__attr__tag () requires {  } ensures 
+    {  } returns int
+
+end
+
+(* Module giving axioms for type "cleanair" defined at clean_air.ads:13, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Clean_air__cleanair___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Clean_air__cleanair
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_180) : Clean_air__cleanair.cleanair
+    ([mlw:proxy_symbol] [introduced] temp___is_init_176) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_177) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_178) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_179) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_181) : Clean_air__cleanair.cleanair
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_182) : bool)
+    requires { True } ensures  { True } returns
+     = ((Clean_air__cleanair.attr__tag ([mlw:proxy_symbol]
+           [introduced] temp___expr_181)) = Clean_air__cleanair.__tag)
+
+end
+
+(* Module giving axioms for type "carbon" defined at clean_air.ads:5, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Clean_air__carbon___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Clean_air__carbon
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_166) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_162) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_163) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_164) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_165) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_162) = True) \/
+          (Clean_air__carbon.first <= Clean_air__carbon.last))
+       then
+       (Clean_air__carbon.dynamic_property Clean_air__carbon.first
+          Clean_air__carbon.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_166))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_167) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_168) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "aircon" defined at clean_air.ads:6, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Clean_air__aircon___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Clean_air__aircon
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_173) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_169) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_170) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_171) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_172) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_169) = True) \/
+          (Clean_air__aircon.first <= Clean_air__aircon.last))
+       then
+       (Clean_air__aircon.dynamic_property Clean_air__aircon.first
+          Clean_air__aircon.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_173))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_174) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_175) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving an empty axiom for the entity "this" defined at clean_air.ads:18, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+module Clean_air__update__this___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for checking contracts and absence of run-time errors in subprogram "update" defined at clean_air.ads:18, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+module Clean_air__update__subprogram_def
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        _gnatprove_standard.Boolean
+  use        Clean_air__update__this
+  use        Clean_air__cleanair
+  use        Clean_air__cleanair___axiom
+  use        Clean_air__carbon
+  use        Clean_air__carbon__rep
+  use        Clean_air__aircon
+  use        Clean_air__aircon__rep
+  use        Clean_air__carbon___axiom
+  use        Clean_air__aircon___axiom
+  use        Clean_air__cleanair___axiom
+  use        Clean_air__update__this___axiom
+  
+  function [GP_Subp:clean_air.ads:18] [sloc:clean_air.ads:18] def
+    (__void_param : unit) requires { True } ensures 
+    { ([sloc:clean_air.ads:21] ([GP_Reason:VC_POSTCONDITION]
+                               [GP_Sloc:clean_air.ads:21:15]
+                               [comment:      Post => (This.carb in Carbon'Range) and                ^ clean_air.ads:21:15:VC_POSTCONDITION]
+                               [model_vc_post] [GP_Id:2]
+                               [GP_Shape:pragargs__and] (([GP_Sloc:clean_air.ads:21:15]
+                                                         [GP_Pretty_Ada:1022] (let ([mlw:proxy_symbol]
+                                                         [introduced] temp___220)
+                                                         =
+                                                         (Clean_air__carbon__rep.to_rep
+                                                            ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                         in
+                                                         ((0
+                                                             <= ([mlw:proxy_symbol]
+                                                             [introduced] temp___220))
+                                                            /\
+                                                            (([mlw:proxy_symbol]
+                                                               [introduced] temp___220)
+                                                               <= 8)))) /\
+                                                           ([GP_Sloc:clean_air.ads:22:15]
+                                                           [GP_Pretty_Ada:1040] (
+                                                           (((Clean_air__aircon__rep.to_rep
+                                                                ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                                               = 1) /\
+                                                              ((Clean_air__carbon__rep.to_rep
+                                                                  ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                                 <= 4)) \/
+                                                             (((Clean_air__aircon__rep.to_rep
+                                                                  ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                                                 = 0) /\
+                                                                ((Clean_air__carbon__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                                   <= 9))))))) }
+    returns
+     = (* Assume dynamic invariants of inputs of the subprogram clean_air.ads:18 *);
+        assume
+        { (Clean_air__cleanair___axiom.dynamic_invariant
+             --pp_record_aggregate NOT IMPLEMENTED True False True True) };
+        (* Assume moved pointers in outputs of the subprogram clean_air.ads:18 *);
+        (* Check for RTE in the Pre of the subprogram clean_air.ads:18 *);
+        abstract ensures
+        { True } begin  (let _ = True in ())  end;
+        (* Assume Pre of the subprogram clean_air.ads:18 *);
+        assume
+        { (([GP_Pretty_Ada:1007] (let ([mlw:proxy_symbol]
+           [introduced] temp___218) =
+           (Clean_air__carbon__rep.to_rep
+              ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+           in
+           ((0 <= ([mlw:proxy_symbol] [introduced] temp___218)) /\
+              (([mlw:proxy_symbol] [introduced] temp___218) <= 8)))) /\
+             ([GP_Pretty_Ada:1014] (let ([mlw:proxy_symbol]
+             [introduced] temp___219) =
+             (Clean_air__aircon__rep.to_rep
+                ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+             in
+             (Clean_air__aircon.in_range ([mlw:proxy_symbol]
+                [introduced] temp___219))))) };
+        (try
+        ();
+          ([GP_Sloc:clean_air.adb:6:7] ([sloc:clean_air.adb:6] (if
+                                                               ([sloc:clean_air.adb:6] ([branch_id=828]
+                                                               _gnatprove_standard.Main.spark__branch
+                                                               :=
+                                                               (_gnatprove_standard.Boolean.andb
+                                                                  ((Clean_air__carbon__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                                    = 8)
+                                                                  ((Clean_air__aircon__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                                                    = 0))));
+                                                               ([branch_id=828] _gnatprove_standard.Main.spark__branch).bool__content
+                                                               then
+                                                               ();
+                                                               ([GP_Sloc:clean_air.adb:7:22] 
+                                                               ([sloc:clean_air.adb:7] (let ([mlw:proxy_symbol]
+                                                               [introduced] temp___201)
+                                                               =
+                                                               (let ([mlw:proxy_symbol]
+                                                                 [introduced] temp___200)
+                                                                 =
+                                                                 ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                                 in abstract
+                                                                 ensures
+                                                                 { True } begin 
+                                                                  (let _ =
+                                                                 ([mlw:proxy_symbol]
+                                                                   [introduced] temp___200).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status
+                                                                 in ())  end;
+                                                                 --pp_record_update NOT IMPLEMENTED)
+                                                               in (
+                                                               Clean_air__update__this.this__split_fields
+                                                               :=
+                                                               ([mlw:proxy_symbol]
+                                                                 [introduced] temp___201).Clean_air__cleanair.__split_fields))))
+                                                                else
+                                                               ([GP_Sloc:clean_air.adb:9:7] 
+                                                               (if
+                                                               ([sloc:clean_air.adb:9] ([branch_id=846]
+                                                               _gnatprove_standard.Main.spark__branch
+                                                               :=
+                                                               ((Clean_air__carbon__rep.to_rep
+                                                                   ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                                  = 0)));
+                                                               ([branch_id=846] _gnatprove_standard.Main.spark__branch).bool__content
+                                                               then
+                                                               ();
+                                                               ([GP_Sloc:clean_air.adb:10:22] 
+                                                               ([sloc:clean_air.adb:10] (let ([mlw:proxy_symbol]
+                                                               [introduced] temp___204)
+                                                               =
+                                                               (let ([mlw:proxy_symbol]
+                                                                 [introduced] temp___203)
+                                                                 =
+                                                                 ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                                 in abstract
+                                                                 ensures
+                                                                 { True } begin 
+                                                                  (let _ =
+                                                                 ([mlw:proxy_symbol]
+                                                                   [introduced] temp___203).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status
+                                                                 in ())  end;
+                                                                 --pp_record_update NOT IMPLEMENTED)
+                                                               in (
+                                                               Clean_air__update__this.this__split_fields
+                                                               :=
+                                                               ([mlw:proxy_symbol]
+                                                                 [introduced] temp___204).Clean_air__cleanair.__split_fields))))
+                                                                else 
+                                                               ())))));
+          ([GP_Sloc:clean_air.adb:13:7] ([sloc:clean_air.adb:13] (if
+                                                                 ([sloc:clean_air.adb:13] ([branch_id=856]
+                                                                 _gnatprove_standard.Main.spark__branch
+                                                                 :=
+                                                                 ((Clean_air__aircon__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                                                    = 1)));
+                                                                 ([branch_id=856] _gnatprove_standard.Main.spark__branch).bool__content
+                                                                 then
+                                                                 ();
+                                                                 ([GP_Sloc:clean_air.adb:15:10] 
+                                                                 ([sloc:clean_air.adb:15] 
+                                                                 (if
+                                                                 ([sloc:clean_air.adb:15] ([branch_id=862]
+                                                                 _gnatprove_standard.Main.spark__branch
+                                                                 :=
+                                                                 (((Clean_air__carbon__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                                    - 4) >= 0)));
+                                                                 ([branch_id=862] _gnatprove_standard.Main.spark__branch).bool__content
+                                                                 then
+                                                                 ();
+                                                                 ([GP_Sloc:clean_air.adb:16:23] 
+                                                                 ([sloc:clean_air.adb:16] (let ([mlw:proxy_symbol]
+                                                                 [introduced] temp___207)
+                                                                 =
+                                                                 (let ([mlw:proxy_symbol]
+                                                                   [introduced] temp___206)
+                                                                   =
+                                                                   ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                                   in
+                                                                   abstract
+                                                                   ensures
+                                                                   { True } begin 
+                                                                    (let _ =
+                                                                   ([mlw:proxy_symbol]
+                                                                    [introduced] temp___206).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb
+                                                                   in ())  end;
+                                                                   --pp_record_update NOT IMPLEMENTED)
+                                                                 in (
+                                                                 Clean_air__update__this.this__split_fields
+                                                                 :=
+                                                                 ([mlw:proxy_symbol]
+                                                                   [introduced] temp___207).Clean_air__cleanair.__split_fields))))
+                                                                  else
+                                                                 ();
+                                                                 ([GP_Sloc:clean_air.adb:18:23] 
+                                                                 ([sloc:clean_air.adb:18] (let ([mlw:proxy_symbol]
+                                                                 [introduced] temp___210)
+                                                                 =
+                                                                 (let ([mlw:proxy_symbol]
+                                                                   [introduced] temp___209)
+                                                                   =
+                                                                   ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                                   in
+                                                                   abstract
+                                                                   ensures
+                                                                   { True } begin 
+                                                                    (let _ =
+                                                                   ([mlw:proxy_symbol]
+                                                                    [introduced] temp___209).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb
+                                                                   in ())  end;
+                                                                   --pp_record_update NOT IMPLEMENTED)
+                                                                 in (
+                                                                 Clean_air__update__this.this__split_fields
+                                                                 :=
+                                                                 ([mlw:proxy_symbol]
+                                                                   [introduced] temp___210).Clean_air__cleanair.__split_fields)))))))
+                                                                  else
+                                                                 ([GP_Sloc:clean_air.adb:20:7] 
+                                                                 (if
+                                                                 ([sloc:clean_air.adb:20] ([branch_id=889]
+                                                                 _gnatprove_standard.Main.spark__branch
+                                                                 :=
+                                                                 ((Clean_air__aircon__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                                                    = 0)));
+                                                                 ([branch_id=889] _gnatprove_standard.Main.spark__branch).bool__content
+                                                                 then
+                                                                 ();
+                                                                 ([GP_Sloc:clean_air.adb:22:10] 
+                                                                 ([sloc:clean_air.adb:22] 
+                                                                 (if
+                                                                 ([sloc:clean_air.adb:22] ([branch_id=894]
+                                                                 _gnatprove_standard.Main.spark__branch
+                                                                 :=
+                                                                 (((Clean_air__carbon__rep.to_rep
+                                                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                                    + 1) <= 8)));
+                                                                 ([branch_id=894] _gnatprove_standard.Main.spark__branch).bool__content
+                                                                 then
+                                                                 ();
+                                                                 ([GP_Sloc:clean_air.adb:23:23] 
+                                                                 ([sloc:clean_air.adb:23] (let ([mlw:proxy_symbol]
+                                                                 [introduced] temp___213)
+                                                                 =
+                                                                 (let ([mlw:proxy_symbol]
+                                                                   [introduced] temp___212)
+                                                                   =
+                                                                   ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                                   in
+                                                                   abstract
+                                                                   ensures
+                                                                   { True } begin 
+                                                                    (let _ =
+                                                                   ([mlw:proxy_symbol]
+                                                                    [introduced] temp___212).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb
+                                                                   in ())  end;
+                                                                   --pp_record_update NOT IMPLEMENTED)
+                                                                 in (
+                                                                 Clean_air__update__this.this__split_fields
+                                                                 :=
+                                                                 ([mlw:proxy_symbol]
+                                                                   [introduced] temp___213).Clean_air__cleanair.__split_fields))))
+                                                                  else
+                                                                 ();
+                                                                 ([GP_Sloc:clean_air.adb:25:23] 
+                                                                 ([sloc:clean_air.adb:25] (let ([mlw:proxy_symbol]
+                                                                 [introduced] temp___216)
+                                                                 =
+                                                                 (let ([mlw:proxy_symbol]
+                                                                   [introduced] temp___215)
+                                                                   =
+                                                                   ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                                   in
+                                                                   abstract
+                                                                   ensures
+                                                                   { True } begin 
+                                                                    (let _ =
+                                                                   ([mlw:proxy_symbol]
+                                                                    [introduced] temp___215).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb
+                                                                   in ())  end;
+                                                                   --pp_record_update NOT IMPLEMENTED)
+                                                                 in (
+                                                                 Clean_air__update__this.this__split_fields
+                                                                 :=
+                                                                 ([mlw:proxy_symbol]
+                                                                   [introduced] temp___216).Clean_air__cleanair.__split_fields)))))))
+                                                                  else 
+                                                                 ())))));
+          raise Return__exc with | Return__exc  -> ());
+        abstract ensures
+        { True } begin  (let _ =
+                       (_gnatprove_standard.Boolean.andb
+                          (let ([mlw:proxy_symbol] [introduced] temp___217) =
+                          (Clean_air__carbon__rep.to_rep
+                             ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                          in
+                          (_gnatprove_standard.Boolean.andb
+                             (0 <= ([mlw:proxy_symbol]
+                                [introduced] temp___217))
+                             (([mlw:proxy_symbol] [introduced] temp___217)
+                                <= 8)))
+                          (_gnatprove_standard.Boolean.orb
+                             (_gnatprove_standard.Boolean.andb
+                                ((Clean_air__aircon__rep.to_rep
+                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                   = 1)
+                                ((Clean_air__carbon__rep.to_rep
+                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                   <= 4))
+                             (_gnatprove_standard.Boolean.andb
+                                ((Clean_air__aircon__rep.to_rep
+                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                   = 0)
+                                ((Clean_air__carbon__rep.to_rep
+                                    ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                   <= 9))))
+                       in ())  end
+
+end
+
+(* Module for checking LSP for subprogram "update" defined at clean_air.ads:18, created in Gnat2Why.Subprograms.Generate_VCs_For_LSP *)
+module Clean_air__update__subprogram_lsp
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Boolean
+  use        Clean_air__update__this
+  use        Clean_air__cleanair
+  use        Clean_air__cleanair___axiom
+  use        Clean_air__carbon
+  use        Clean_air__carbon__rep
+  use        Clean_air__aircon
+  use        Clean_air__aircon__rep
+  use        Clean_air__carbon___axiom
+  use        Clean_air__aircon___axiom
+  use        Clean_air__cleanair___axiom
+  use        Clean_air__update__this___axiom
+  
+  function [GP_Subp:clean_air.ads:18] [sloc:clean_air.ads:18] def
+    (__void_param : unit) requires { True } ensures  { True } returns
+     = assume
+        { (Clean_air__cleanair___axiom.dynamic_invariant
+             --pp_record_aggregate NOT IMPLEMENTED True False True True) };
+        abstract ensures
+        { True } begin  (let _ =
+                       (_gnatprove_standard.Boolean.andb
+                          (let ([mlw:proxy_symbol] [introduced] temp___224) =
+                          (Clean_air__carbon__rep.to_rep
+                             ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                          in
+                          (_gnatprove_standard.Boolean.andb
+                             (0 <= ([mlw:proxy_symbol]
+                                [introduced] temp___224))
+                             (([mlw:proxy_symbol] [introduced] temp___224)
+                                <= 8))) (let ([mlw:proxy_symbol]
+                          [introduced] temp___225) =
+                          (Clean_air__aircon__rep.to_rep
+                             ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                          in
+                          (Clean_air__aircon.in_range ([mlw:proxy_symbol]
+                             [introduced] temp___225))))
+                       in ())  end
+
+end

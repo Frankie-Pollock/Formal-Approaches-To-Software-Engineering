@@ -1,0 +1,2907 @@
+(* Module for axiomatizing type "temperature" defined at house_heating.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module House_heating__temperature
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type temperature  = <range 17 19>
+  
+  function   first () requires { True } ensures  { True } returns int = 17
+  
+  function   last () requires { True } ensures  { True } returns int = 19
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = temperature,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type temperature__ref  = { mutable temperature__content : temperature }
+  
+  function   temperature__ref_temperature__content__projection
+    (a : temperature__ref) requires {  } ensures  {  } returns
+    temperature = a.temperature__content
+  
+  meta model_projection function temperature__ref_temperature__content__projection
+  
+  meta inline:no function temperature__ref_temperature__content__projection
+  
+  function   temperature__havoc (x : temperature__ref) requires {  } ensures 
+    {  } returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "temperature" defined at house_heating.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module House_heating__temperature__rep
+  
+  use        House_heating__temperature
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  function   to_rep (x : House_heating__temperature.temperature) requires
+    { True } ensures  { True } returns
+    int = (House_heating__temperature.temperature'int x)
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = House_heating__temperature.temperature,
+    predicate in_range = House_heating__temperature.in_range,
+    function to_rep = to_rep
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "heatingstatus" defined at house_heating.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_heating__heatingstatus
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type heatingstatus  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = heatingstatus,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type heatingstatus__ref  = { mutable heatingstatus__content : heatingstatus }
+  
+  function   heatingstatus__ref_heatingstatus__content__projection
+    (a : heatingstatus__ref) requires {  } ensures  {  } returns
+    heatingstatus = a.heatingstatus__content
+  
+  meta model_projection function heatingstatus__ref_heatingstatus__content__projection
+  
+  meta inline:no function heatingstatus__ref_heatingstatus__content__projection
+  
+  function   heatingstatus__havoc (x : heatingstatus__ref) requires {  }
+    ensures  {  } returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "heatingstatus" defined at house_heating.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_heating__heatingstatus__rep
+  
+  use        House_heating__heatingstatus
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = House_heating__heatingstatus.heatingstatus,
+    predicate in_range = House_heating__heatingstatus.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the record theory associated to type "househeating" defined at house_heating.ads:13, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module House_heating__househeating__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        House_heating__temperature
+  use        House_heating__temperature__rep
+  use        House_heating__heatingstatus
+  use        House_heating__heatingstatus__rep
+  
+  type __split_fields  = { [name:temp]
+                           [model_trace:.1131]rec__house_heating__househeating__temp : House_heating__temperature.temperature;
+                           [model_trace:.1136]
+                           [name:status]rec__house_heating__househeating__status : House_heating__heatingstatus.heatingstatus;
+                           rec__ext__ : _gnatprove_standard.Main.__private }
+  
+  function [name:temp] [model_trace:.1131] 
+    __split_fields_rec__house_heating__househeating__temp__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_heating__temperature.temperature = a.rec__house_heating__househeating__temp
+  
+  meta model_projection function __split_fields_rec__house_heating__househeating__temp__projection
+  
+  meta inline:no function __split_fields_rec__house_heating__househeating__temp__projection
+  
+  function [model_trace:.1136] [name:status] 
+    __split_fields_rec__house_heating__househeating__status__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_heating__heatingstatus.heatingstatus = a.rec__house_heating__househeating__status
+  
+  meta model_projection function __split_fields_rec__house_heating__househeating__status__projection
+  
+  meta inline:no function __split_fields_rec__house_heating__househeating__status__projection
+  
+  function   __split_fields_rec__ext____projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    _gnatprove_standard.Main.__private = a.rec__ext__
+  
+  meta model_projection function __split_fields_rec__ext____projection
+  
+  meta inline:no function __split_fields_rec__ext____projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields; attr__tag : int }
+  
+  function   __rep___split_fields__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__projection
+  
+  meta inline:no function __rep___split_fields__projection
+  
+  function   __rep_attr__tag__projection (a : __rep) requires {  } ensures 
+    {  } returns int = a.attr__tag
+  
+  meta model_projection function __rep_attr__tag__projection
+  
+  meta inline:no function __rep_attr__tag__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   house_heating__househeating__temp__pred (a : __rep) requires
+    { True } ensures  { True } returns  = True
+  
+  function   rec__house_heating__househeating__temp_ (a : __rep) requires
+    { (house_heating__househeating__temp__pred a) } ensures 
+    { (result = a.__split_fields.rec__house_heating__househeating__temp) }
+    returns House_heating__temperature.temperature
+  
+  function   house_heating__househeating__status__pred (a : __rep) requires
+    { True } ensures  { True } returns  = True
+  
+  function   rec__house_heating__househeating__status_ (a : __rep) requires
+    { (house_heating__househeating__status__pred a) } ensures 
+    { (result = a.__split_fields.rec__house_heating__househeating__status) }
+    returns House_heating__heatingstatus.heatingstatus
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           (((House_heating__temperature__rep.to_rep
+                a.__split_fields.rec__house_heating__househeating__temp)
+               = (House_heating__temperature__rep.to_rep
+                    b.__split_fields.rec__house_heating__househeating__temp))
+              /\
+              ((House_heating__heatingstatus__rep.to_rep
+                  a.__split_fields.rec__house_heating__househeating__status)
+                 = (House_heating__heatingstatus__rep.to_rep
+                      b.__split_fields.rec__house_heating__househeating__status)))
+           then True  else False)
+  
+  function   __dispatch_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns bool
+
+end
+
+(* Module for axiomatizing type "househeating" defined at house_heating.ads:13, created in Gnat2Why.Types.Translate_Type *)
+module House_heating__househeating
+  
+  use export House_heating__househeating__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type househeating  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   __tag () requires {  } ensures  {  } returns int
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   house_heating__househeating__temp__first__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   house_heating__househeating__temp__last__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   house_heating__househeating__temp__position () requires {  }
+    ensures  {  } returns int
+  
+  axiom house_heating__househeating__temp__first__bit_axiom : ((house_heating__househeating__temp__first__bit
+                                                                  ) >= 0)
+  
+  axiom house_heating__househeating__temp__last__bit_axiom : ((house_heating__househeating__temp__last__bit
+                                                                 )
+                                                                > (house_heating__househeating__temp__first__bit
+                                                                    ))
+  
+  axiom house_heating__househeating__temp__position_axiom : ((house_heating__househeating__temp__position
+                                                                ) >= 0)
+  
+  function   house_heating__househeating__status__first__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   house_heating__househeating__status__last__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   house_heating__househeating__status__position () requires {  }
+    ensures  {  } returns int
+  
+  axiom house_heating__househeating__status__first__bit_axiom : ((house_heating__househeating__status__first__bit
+                                                                    ) >= 0)
+  
+  axiom house_heating__househeating__status__last__bit_axiom : ((house_heating__househeating__status__last__bit
+                                                                   )
+                                                                  > (
+                                                                  house_heating__househeating__status__first__bit
+                                                                    ))
+  
+  axiom house_heating__househeating__status__position_axiom : ((house_heating__househeating__status__position
+                                                                  ) >= 0)
+  
+  function   user_eq (a : househeating b : househeating) requires { True }
+    ensures  { True } returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns househeating
+  
+  type househeating__ref  = { mutable househeating__content : househeating }
+  
+  function   househeating__ref_househeating__content__projection
+    (a : househeating__ref) requires {  } ensures  {  } returns
+    househeating = a.househeating__content
+  
+  meta model_projection function househeating__ref_househeating__content__projection
+  
+  meta inline:no function househeating__ref_househeating__content__projection
+  
+  function   househeating__havoc (x : househeating__ref) requires {  }
+    ensures  {  } returns unit
+
+end
+
+(* Module for axiomatizing type "exteriorstatus" defined at house_exterior.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_exterior__exteriorstatus
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type exteriorstatus  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = exteriorstatus,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type exteriorstatus__ref  = { mutable exteriorstatus__content : exteriorstatus }
+  
+  function   exteriorstatus__ref_exteriorstatus__content__projection
+    (a : exteriorstatus__ref) requires {  } ensures  {  } returns
+    exteriorstatus = a.exteriorstatus__content
+  
+  meta model_projection function exteriorstatus__ref_exteriorstatus__content__projection
+  
+  meta inline:no function exteriorstatus__ref_exteriorstatus__content__projection
+  
+  function   exteriorstatus__havoc (x : exteriorstatus__ref) requires {  }
+    ensures  {  } returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "exteriorstatus" defined at house_exterior.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_exterior__exteriorstatus__rep
+  
+  use        House_exterior__exteriorstatus
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = House_exterior__exteriorstatus.exteriorstatus,
+    predicate in_range = House_exterior__exteriorstatus.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the record theory associated to type "houseexterior" defined at house_exterior.ads:6, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module House_exterior__houseexterior__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        House_exterior__exteriorstatus
+  use        House_exterior__exteriorstatus__rep
+  
+  type __split_fields  = { [model_trace:.1265]
+                           [name:status]rec__house_exterior__houseexterior__status : House_exterior__exteriorstatus.exteriorstatus;
+                           rec__ext__ : _gnatprove_standard.Main.__private }
+  
+  function [model_trace:.1265] [name:status] 
+    __split_fields_rec__house_exterior__houseexterior__status__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_exterior__exteriorstatus.exteriorstatus = a.rec__house_exterior__houseexterior__status
+  
+  meta model_projection function __split_fields_rec__house_exterior__houseexterior__status__projection
+  
+  meta inline:no function __split_fields_rec__house_exterior__houseexterior__status__projection
+  
+  function   __split_fields_rec__ext____2__projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    _gnatprove_standard.Main.__private = a.rec__ext__
+  
+  meta model_projection function __split_fields_rec__ext____2__projection
+  
+  meta inline:no function __split_fields_rec__ext____2__projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__2__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__2__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__2__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields; attr__tag : int }
+  
+  function   __rep___split_fields__2__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__2__projection
+  
+  meta inline:no function __rep___split_fields__2__projection
+  
+  function   __rep_attr__tag__2__projection (a : __rep) requires {  }
+    ensures  {  } returns int = a.attr__tag
+  
+  meta model_projection function __rep_attr__tag__2__projection
+  
+  meta inline:no function __rep_attr__tag__2__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   house_exterior__houseexterior__status__pred (a : __rep) requires
+    { True } ensures  { True } returns  = True
+  
+  function   rec__house_exterior__houseexterior__status_ (a : __rep) requires
+    { (house_exterior__houseexterior__status__pred a) } ensures 
+    { (result = a.__split_fields.rec__house_exterior__houseexterior__status) }
+    returns House_exterior__exteriorstatus.exteriorstatus
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           ((House_exterior__exteriorstatus__rep.to_rep
+               a.__split_fields.rec__house_exterior__houseexterior__status)
+              = (House_exterior__exteriorstatus__rep.to_rep
+                   b.__split_fields.rec__house_exterior__houseexterior__status))
+           then True  else False)
+  
+  function   __dispatch_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns bool
+
+end
+
+(* Module for axiomatizing type "houseexterior" defined at house_exterior.ads:6, created in Gnat2Why.Types.Translate_Type *)
+module House_exterior__houseexterior
+  
+  use export House_exterior__houseexterior__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type houseexterior  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   __tag () requires {  } ensures  {  } returns int
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   house_exterior__houseexterior__status__first__bit () requires
+    {  } ensures  {  } returns int
+  
+  function   house_exterior__houseexterior__status__last__bit () requires
+    {  } ensures  {  } returns int
+  
+  function   house_exterior__houseexterior__status__position () requires {  }
+    ensures  {  } returns int
+  
+  axiom house_exterior__houseexterior__status__first__bit_axiom : ((house_exterior__houseexterior__status__first__bit
+                                                                    ) >= 0)
+  
+  axiom house_exterior__houseexterior__status__last__bit_axiom : ((house_exterior__houseexterior__status__last__bit
+                                                                    )
+                                                                    > (
+                                                                    house_exterior__houseexterior__status__first__bit
+                                                                    ))
+  
+  axiom house_exterior__houseexterior__status__position_axiom : ((house_exterior__houseexterior__status__position
+                                                                    ) >= 0)
+  
+  function   user_eq (a : houseexterior b : houseexterior) requires { True }
+    ensures  { True } returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns houseexterior
+  
+  type houseexterior__ref  = { mutable houseexterior__content : houseexterior }
+  
+  function   houseexterior__ref_houseexterior__content__projection
+    (a : houseexterior__ref) requires {  } ensures  {  } returns
+    houseexterior = a.houseexterior__content
+  
+  meta model_projection function houseexterior__ref_houseexterior__content__projection
+  
+  meta inline:no function houseexterior__ref_houseexterior__content__projection
+  
+  function   houseexterior__havoc (x : houseexterior__ref) requires {  }
+    ensures  {  } returns unit
+
+end
+
+(* Module for axiomatizing type "carbon" defined at clean_air.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__carbon
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type carbon  = <range 0 8>
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 8
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = carbon,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type carbon__ref  = { mutable carbon__content : carbon }
+  
+  function   carbon__ref_carbon__content__projection (a : carbon__ref)
+    requires {  } ensures  {  } returns carbon = a.carbon__content
+  
+  meta model_projection function carbon__ref_carbon__content__projection
+  
+  meta inline:no function carbon__ref_carbon__content__projection
+  
+  function   carbon__havoc (x : carbon__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "carbon" defined at clean_air.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__carbon__rep
+  
+  use        Clean_air__carbon
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  function   to_rep (x : Clean_air__carbon.carbon) requires { True } ensures 
+    { True } returns int = (Clean_air__carbon.carbon'int x)
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Clean_air__carbon.carbon,
+    predicate in_range = Clean_air__carbon.in_range, function to_rep = to_rep
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "aircon" defined at clean_air.ads:6, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__aircon
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type aircon  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = aircon,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type aircon__ref  = { mutable aircon__content : aircon }
+  
+  function   aircon__ref_aircon__content__projection (a : aircon__ref)
+    requires {  } ensures  {  } returns aircon = a.aircon__content
+  
+  meta model_projection function aircon__ref_aircon__content__projection
+  
+  meta inline:no function aircon__ref_aircon__content__projection
+  
+  function   aircon__havoc (x : aircon__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "aircon" defined at clean_air.ads:6, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__aircon__rep
+  
+  use        Clean_air__aircon
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = Clean_air__aircon.aircon,
+    predicate in_range = Clean_air__aircon.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the record theory associated to type "cleanair" defined at clean_air.ads:13, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module Clean_air__cleanair__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        Clean_air__carbon
+  use        Clean_air__carbon__rep
+  use        Clean_air__aircon
+  use        Clean_air__aircon__rep
+  
+  type __split_fields  = { [model_trace:.1364]
+                           [name:carb]rec__clean_air__cleanair__carb : Clean_air__carbon.carbon;
+                           [name:status]
+                           [model_trace:.1369]rec__clean_air__cleanair__status : Clean_air__aircon.aircon;
+                           rec__ext__ : _gnatprove_standard.Main.__private }
+  
+  function [model_trace:.1364] [name:carb] 
+    __split_fields_rec__clean_air__cleanair__carb__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    Clean_air__carbon.carbon = a.rec__clean_air__cleanair__carb
+  
+  meta model_projection function __split_fields_rec__clean_air__cleanair__carb__projection
+  
+  meta inline:no function __split_fields_rec__clean_air__cleanair__carb__projection
+  
+  function [name:status] [model_trace:.1369] 
+    __split_fields_rec__clean_air__cleanair__status__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    Clean_air__aircon.aircon = a.rec__clean_air__cleanair__status
+  
+  meta model_projection function __split_fields_rec__clean_air__cleanair__status__projection
+  
+  meta inline:no function __split_fields_rec__clean_air__cleanair__status__projection
+  
+  function   __split_fields_rec__ext____3__projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    _gnatprove_standard.Main.__private = a.rec__ext__
+  
+  meta model_projection function __split_fields_rec__ext____3__projection
+  
+  meta inline:no function __split_fields_rec__ext____3__projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__3__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__3__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__3__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields; attr__tag : int }
+  
+  function   __rep___split_fields__3__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__3__projection
+  
+  meta inline:no function __rep___split_fields__3__projection
+  
+  function   __rep_attr__tag__3__projection (a : __rep) requires {  }
+    ensures  {  } returns int = a.attr__tag
+  
+  meta model_projection function __rep_attr__tag__3__projection
+  
+  meta inline:no function __rep_attr__tag__3__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   clean_air__cleanair__carb__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__clean_air__cleanair__carb_ (a : __rep) requires
+    { (clean_air__cleanair__carb__pred a) } ensures 
+    { (result = a.__split_fields.rec__clean_air__cleanair__carb) } returns
+    Clean_air__carbon.carbon
+  
+  function   clean_air__cleanair__status__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__clean_air__cleanair__status_ (a : __rep) requires
+    { (clean_air__cleanair__status__pred a) } ensures 
+    { (result = a.__split_fields.rec__clean_air__cleanair__status) } returns
+    Clean_air__aircon.aircon
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           (((Clean_air__carbon__rep.to_rep
+                a.__split_fields.rec__clean_air__cleanair__carb)
+               = (Clean_air__carbon__rep.to_rep
+                    b.__split_fields.rec__clean_air__cleanair__carb)) /\
+              ((Clean_air__aircon__rep.to_rep
+                  a.__split_fields.rec__clean_air__cleanair__status)
+                 = (Clean_air__aircon__rep.to_rep
+                      b.__split_fields.rec__clean_air__cleanair__status)))
+           then True  else False)
+  
+  function   __dispatch_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns bool
+
+end
+
+(* Module for axiomatizing type "cleanair" defined at clean_air.ads:13, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__cleanair
+  
+  use export Clean_air__cleanair__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type cleanair  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   __tag () requires {  } ensures  {  } returns int
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   clean_air__cleanair__carb__first__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   clean_air__cleanair__carb__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   clean_air__cleanair__carb__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom clean_air__cleanair__carb__first__bit_axiom : ((clean_air__cleanair__carb__first__bit
+                                                          ) >= 0)
+  
+  axiom clean_air__cleanair__carb__last__bit_axiom : ((clean_air__cleanair__carb__last__bit
+                                                         )
+                                                        > (clean_air__cleanair__carb__first__bit
+                                                             ))
+  
+  axiom clean_air__cleanair__carb__position_axiom : ((clean_air__cleanair__carb__position
+                                                        ) >= 0)
+  
+  function   clean_air__cleanair__status__first__bit () requires {  }
+    ensures  {  } returns int
+  
+  function   clean_air__cleanair__status__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   clean_air__cleanair__status__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom clean_air__cleanair__status__first__bit_axiom : ((clean_air__cleanair__status__first__bit
+                                                            ) >= 0)
+  
+  axiom clean_air__cleanair__status__last__bit_axiom : ((clean_air__cleanair__status__last__bit
+                                                           )
+                                                          > (clean_air__cleanair__status__first__bit
+                                                               ))
+  
+  axiom clean_air__cleanair__status__position_axiom : ((clean_air__cleanair__status__position
+                                                          ) >= 0)
+  
+  function   user_eq (a : cleanair b : cleanair) requires { True } ensures 
+    { True } returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns cleanair
+  
+  type cleanair__ref  = { mutable cleanair__content : cleanair }
+  
+  function   cleanair__ref_cleanair__content__projection (a : cleanair__ref)
+    requires {  } ensures  {  } returns cleanair = a.cleanair__content
+  
+  meta model_projection function cleanair__ref_cleanair__content__projection
+  
+  meta inline:no function cleanair__ref_cleanair__content__projection
+  
+  function   cleanair__havoc (x : cleanair__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module for axiomatizing type "unlocked" defined at house_appliances.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__unlocked
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type unlocked  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = unlocked,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type unlocked__ref  = { mutable unlocked__content : unlocked }
+  
+  function   unlocked__ref_unlocked__content__projection (a : unlocked__ref)
+    requires {  } ensures  {  } returns unlocked = a.unlocked__content
+  
+  meta model_projection function unlocked__ref_unlocked__content__projection
+  
+  meta inline:no function unlocked__ref_unlocked__content__projection
+  
+  function   unlocked__havoc (x : unlocked__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "unlocked" defined at house_appliances.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__unlocked__rep
+  
+  use        House_appliances__unlocked
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = House_appliances__unlocked.unlocked,
+    predicate in_range = House_appliances__unlocked.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "locked" defined at house_appliances.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__locked
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type locked  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = locked,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type locked__ref  = { mutable locked__content : locked }
+  
+  function   locked__ref_locked__content__projection (a : locked__ref)
+    requires {  } ensures  {  } returns locked = a.locked__content
+  
+  meta model_projection function locked__ref_locked__content__projection
+  
+  meta inline:no function locked__ref_locked__content__projection
+  
+  function   locked__havoc (x : locked__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "locked" defined at house_appliances.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__locked__rep
+  
+  use        House_appliances__locked
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = House_appliances__locked.locked,
+    predicate in_range = House_appliances__locked.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the record theory associated to type "houseappliances" defined at house_appliances.ads:7, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module House_appliances__houseappliances__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        House_appliances__unlocked
+  use        House_appliances__unlocked__rep
+  use        House_appliances__locked
+  use        House_appliances__locked__rep
+  
+  type __split_fields  = { [name:statusUnlocked]
+                           [model_trace:.1470]rec__house_appliances__houseappliances__statusunlocked : House_appliances__unlocked.unlocked;
+                           [name:statusLocked]
+                           [model_trace:.1475]rec__house_appliances__houseappliances__statuslocked : House_appliances__locked.locked;
+                           rec__ext__ : _gnatprove_standard.Main.__private }
+  
+  function [name:statusUnlocked] [model_trace:.1470] 
+    __split_fields_rec__house_appliances__houseappliances__statusunlocked__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_appliances__unlocked.unlocked = a.rec__house_appliances__houseappliances__statusunlocked
+  
+  meta model_projection function __split_fields_rec__house_appliances__houseappliances__statusunlocked__projection
+  
+  meta inline:no function __split_fields_rec__house_appliances__houseappliances__statusunlocked__projection
+  
+  function [name:statusLocked] [model_trace:.1475] 
+    __split_fields_rec__house_appliances__houseappliances__statuslocked__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_appliances__locked.locked = a.rec__house_appliances__houseappliances__statuslocked
+  
+  meta model_projection function __split_fields_rec__house_appliances__houseappliances__statuslocked__projection
+  
+  meta inline:no function __split_fields_rec__house_appliances__houseappliances__statuslocked__projection
+  
+  function   __split_fields_rec__ext____4__projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    _gnatprove_standard.Main.__private = a.rec__ext__
+  
+  meta model_projection function __split_fields_rec__ext____4__projection
+  
+  meta inline:no function __split_fields_rec__ext____4__projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__4__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__4__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__4__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields; attr__tag : int }
+  
+  function   __rep___split_fields__4__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__4__projection
+  
+  meta inline:no function __rep___split_fields__4__projection
+  
+  function   __rep_attr__tag__4__projection (a : __rep) requires {  }
+    ensures  {  } returns int = a.attr__tag
+  
+  meta model_projection function __rep_attr__tag__4__projection
+  
+  meta inline:no function __rep_attr__tag__4__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   house_appliances__houseappliances__statusunlocked__pred
+    (a : __rep) requires { True } ensures  { True } returns  = True
+  
+  function   rec__house_appliances__houseappliances__statusunlocked_
+    (a : __rep) requires
+    { (house_appliances__houseappliances__statusunlocked__pred a) } ensures 
+    { (result
+         = a.__split_fields.rec__house_appliances__houseappliances__statusunlocked) }
+    returns House_appliances__unlocked.unlocked
+  
+  function   house_appliances__houseappliances__statuslocked__pred
+    (a : __rep) requires { True } ensures  { True } returns  = True
+  
+  function   rec__house_appliances__houseappliances__statuslocked_
+    (a : __rep) requires
+    { (house_appliances__houseappliances__statuslocked__pred a) } ensures 
+    { (result
+         = a.__split_fields.rec__house_appliances__houseappliances__statuslocked) }
+    returns House_appliances__locked.locked
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           (((House_appliances__unlocked__rep.to_rep
+                a.__split_fields.rec__house_appliances__houseappliances__statusunlocked)
+               = (House_appliances__unlocked__rep.to_rep
+                    b.__split_fields.rec__house_appliances__houseappliances__statusunlocked))
+              /\
+              ((House_appliances__locked__rep.to_rep
+                  a.__split_fields.rec__house_appliances__houseappliances__statuslocked)
+                 = (House_appliances__locked__rep.to_rep
+                      b.__split_fields.rec__house_appliances__houseappliances__statuslocked)))
+           then True  else False)
+  
+  function   __dispatch_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns bool
+
+end
+
+(* Module for axiomatizing type "houseappliances" defined at house_appliances.ads:7, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__houseappliances
+  
+  use export House_appliances__houseappliances__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type houseappliances  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   __tag () requires {  } ensures  {  } returns int
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   house_appliances__houseappliances__statusunlocked__first__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statusunlocked__last__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statusunlocked__position 
+    () requires {  } ensures  {  } returns int
+  
+  axiom house_appliances__houseappliances__statusunlocked__first__bit_axiom : 
+  ((house_appliances__houseappliances__statusunlocked__first__bit ) >= 0)
+  
+  axiom house_appliances__houseappliances__statusunlocked__last__bit_axiom : 
+  ((house_appliances__houseappliances__statusunlocked__last__bit )
+     > (house_appliances__houseappliances__statusunlocked__first__bit ))
+  
+  axiom house_appliances__houseappliances__statusunlocked__position_axiom : 
+  ((house_appliances__houseappliances__statusunlocked__position ) >= 0)
+  
+  function   house_appliances__houseappliances__statuslocked__first__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statuslocked__last__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statuslocked__position 
+    () requires {  } ensures  {  } returns int
+  
+  axiom house_appliances__houseappliances__statuslocked__first__bit_axiom : 
+  ((house_appliances__houseappliances__statuslocked__first__bit ) >= 0)
+  
+  axiom house_appliances__houseappliances__statuslocked__last__bit_axiom : 
+  ((house_appliances__houseappliances__statuslocked__last__bit )
+     > (house_appliances__houseappliances__statuslocked__first__bit ))
+  
+  axiom house_appliances__houseappliances__statuslocked__position_axiom : 
+  ((house_appliances__houseappliances__statuslocked__position ) >= 0)
+  
+  function   user_eq (a : houseappliances b : houseappliances) requires
+    { True } ensures  { True } returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns houseappliances
+  
+  type houseappliances__ref  = { mutable houseappliances__content : houseappliances }
+  
+  function   houseappliances__ref_houseappliances__content__projection
+    (a : houseappliances__ref) requires {  } ensures  {  } returns
+    houseappliances = a.houseappliances__content
+  
+  meta model_projection function houseappliances__ref_houseappliances__content__projection
+  
+  meta inline:no function houseappliances__ref_houseappliances__content__projection
+  
+  function   houseappliances__havoc (x : houseappliances__ref) requires {  }
+    ensures  {  } returns unit
+
+end
+
+(* Module for axiomatizing the record theory associated to type "house" defined at house.ads:11, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module House__house__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        House_heating__househeating
+  use        House_exterior__houseexterior
+  use        Clean_air__cleanair
+  use        House_appliances__houseappliances
+  
+  type __split_fields  = { [name:heating]
+                           [model_trace:.946]rec__house__house__heating : House_heating__househeating.househeating;
+                           [name:exterior]
+                           [model_trace:.952]rec__house__house__exterior : House_exterior__houseexterior.houseexterior;
+                           [name:air]
+                           [model_trace:.957]rec__house__house__air : Clean_air__cleanair.cleanair;
+                           [model_trace:.962]
+                           [name:appliances]rec__house__house__appliances : House_appliances__houseappliances.houseappliances;
+                           rec__ext__ : _gnatprove_standard.Main.__private }
+  
+  function [name:heating] [model_trace:.946] 
+    __split_fields_rec__house__house__heating__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_heating__househeating.househeating = a.rec__house__house__heating
+  
+  meta model_projection function __split_fields_rec__house__house__heating__projection
+  
+  meta inline:no function __split_fields_rec__house__house__heating__projection
+  
+  function [name:exterior] [model_trace:.952] 
+    __split_fields_rec__house__house__exterior__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_exterior__houseexterior.houseexterior = a.rec__house__house__exterior
+  
+  meta model_projection function __split_fields_rec__house__house__exterior__projection
+  
+  meta inline:no function __split_fields_rec__house__house__exterior__projection
+  
+  function [name:air] [model_trace:.957] 
+    __split_fields_rec__house__house__air__projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    Clean_air__cleanair.cleanair = a.rec__house__house__air
+  
+  meta model_projection function __split_fields_rec__house__house__air__projection
+  
+  meta inline:no function __split_fields_rec__house__house__air__projection
+  
+  function [model_trace:.962] [name:appliances] 
+    __split_fields_rec__house__house__appliances__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_appliances__houseappliances.houseappliances = a.rec__house__house__appliances
+  
+  meta model_projection function __split_fields_rec__house__house__appliances__projection
+  
+  meta inline:no function __split_fields_rec__house__house__appliances__projection
+  
+  function   __split_fields_rec__ext____5__projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    _gnatprove_standard.Main.__private = a.rec__ext__
+  
+  meta model_projection function __split_fields_rec__ext____5__projection
+  
+  meta inline:no function __split_fields_rec__ext____5__projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__5__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__5__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__5__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields; attr__tag : int }
+  
+  function   __rep___split_fields__5__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__5__projection
+  
+  meta inline:no function __rep___split_fields__5__projection
+  
+  function   __rep_attr__tag__5__projection (a : __rep) requires {  }
+    ensures  {  } returns int = a.attr__tag
+  
+  meta model_projection function __rep_attr__tag__5__projection
+  
+  meta inline:no function __rep_attr__tag__5__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   house__house__heating__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__house__house__heating_ (a : __rep) requires
+    { (house__house__heating__pred a) } ensures 
+    { (result = a.__split_fields.rec__house__house__heating) } returns
+    House_heating__househeating.househeating
+  
+  function   house__house__exterior__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__house__house__exterior_ (a : __rep) requires
+    { (house__house__exterior__pred a) } ensures 
+    { (result = a.__split_fields.rec__house__house__exterior) } returns
+    House_exterior__houseexterior.houseexterior
+  
+  function   house__house__air__pred (a : __rep) requires { True } ensures 
+    { True } returns  = True
+  
+  function   rec__house__house__air_ (a : __rep) requires
+    { (house__house__air__pred a) } ensures 
+    { (result = a.__split_fields.rec__house__house__air) } returns
+    Clean_air__cleanair.cleanair
+  
+  function   house__house__appliances__pred (a : __rep) requires { True }
+    ensures  { True } returns  = True
+  
+  function   rec__house__house__appliances_ (a : __rep) requires
+    { (house__house__appliances__pred a) } ensures 
+    { (result = a.__split_fields.rec__house__house__appliances) } returns
+    House_appliances__houseappliances.houseappliances
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           ((House_heating__househeating.bool_eq
+               a.__split_fields.rec__house__house__heating
+               b.__split_fields.rec__house__house__heating) /\
+              (House_exterior__houseexterior.bool_eq
+                 a.__split_fields.rec__house__house__exterior
+                 b.__split_fields.rec__house__house__exterior) /\
+              (Clean_air__cleanair.bool_eq
+                 a.__split_fields.rec__house__house__air
+                 b.__split_fields.rec__house__house__air) /\
+              (House_appliances__houseappliances.bool_eq
+                 a.__split_fields.rec__house__house__appliances
+                 b.__split_fields.rec__house__house__appliances))
+           then True  else False)
+  
+  function   __dispatch_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns bool
+
+end
+
+(* Module for axiomatizing type "house" defined at house.ads:11, created in Gnat2Why.Types.Translate_Type *)
+module House__house
+  
+  use export House__house__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type house  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   __tag () requires {  } ensures  {  } returns int
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   house__house__heating__first__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   house__house__heating__last__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   house__house__heating__position () requires {  } ensures  {  }
+    returns int
+  
+  axiom house__house__heating__first__bit_axiom : ((house__house__heating__first__bit
+                                                      ) >= 0)
+  
+  axiom house__house__heating__last__bit_axiom : ((house__house__heating__last__bit
+                                                     )
+                                                    > (house__house__heating__first__bit
+                                                         ))
+  
+  axiom house__house__heating__position_axiom : ((house__house__heating__position
+                                                    ) >= 0)
+  
+  function   house__house__exterior__first__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   house__house__exterior__last__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   house__house__exterior__position () requires {  } ensures  {  }
+    returns int
+  
+  axiom house__house__exterior__first__bit_axiom : ((house__house__exterior__first__bit
+                                                       ) >= 0)
+  
+  axiom house__house__exterior__last__bit_axiom : ((house__house__exterior__last__bit
+                                                      )
+                                                     > (house__house__exterior__first__bit
+                                                          ))
+  
+  axiom house__house__exterior__position_axiom : ((house__house__exterior__position
+                                                     ) >= 0)
+  
+  function   house__house__air__first__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   house__house__air__last__bit () requires {  } ensures  {  }
+    returns int
+  
+  function   house__house__air__position () requires {  } ensures  {  }
+    returns int
+  
+  axiom house__house__air__first__bit_axiom : ((house__house__air__first__bit )
+                                                 >= 0)
+  
+  axiom house__house__air__last__bit_axiom : ((house__house__air__last__bit )
+                                                > (house__house__air__first__bit
+                                                     ))
+  
+  axiom house__house__air__position_axiom : ((house__house__air__position )
+                                               >= 0)
+  
+  function   house__house__appliances__first__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   house__house__appliances__last__bit () requires {  } ensures 
+    {  } returns int
+  
+  function   house__house__appliances__position () requires {  } ensures 
+    {  } returns int
+  
+  axiom house__house__appliances__first__bit_axiom : ((house__house__appliances__first__bit
+                                                         ) >= 0)
+  
+  axiom house__house__appliances__last__bit_axiom : ((house__house__appliances__last__bit
+                                                        )
+                                                       > (house__house__appliances__first__bit
+                                                            ))
+  
+  axiom house__house__appliances__position_axiom : ((house__house__appliances__position
+                                                       ) >= 0)
+  
+  function   user_eq (a : house b : house) requires { True } ensures 
+    { True } returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns house
+  
+  type house__ref  = { mutable house__content : house }
+  
+  function   house__ref_house__content__projection (a : house__ref) requires
+    {  } ensures  {  } returns house = a.house__content
+  
+  meta model_projection function house__ref_house__content__projection
+  
+  meta inline:no function house__ref_house__content__projection
+  
+  function   house__havoc (x : house__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module for defining a ref holding the value of variable "this" defined at house.ads:20, created in Gnat2Why.Decls.Translate_Variable *)
+module House__update__this
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House__house
+  
+  val this__split_fields [model_trace:977] [model_projected]
+  [name:This] [sloc:house.ads:20]: House__house.__split_fields
+  
+  function  [sloc:house.ads:20] this__attr__tag () requires {  } ensures 
+    {  } returns int
+
+end
+
+(* Module for possibly declaring a logic function for "createheating" defined at house_heating.ads:30, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+module House_heating__createheating
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_heating__househeating
+  
+  function   createheating (__void_param : unit) requires { True } ensures 
+    { True } returns House_heating__househeating.househeating
+  
+  function   createheating__function_guard
+    (([mlw:proxy_symbol]
+    [introduced] temp___result_161) : House_heating__househeating.househeating
+    __void_param : unit) requires { True } ensures  { True } returns bool
+  
+  scope Dispatch function   createheating
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures  { True } returns
+                   House_heating__househeating.househeating
+    function   createheating__function_guard
+      (([mlw:proxy_symbol]
+      [introduced] temp___result_161) : House_heating__househeating.househeating
+      attr__tag : int __void_param : unit) requires { True } ensures 
+      { True } returns bool end
+
+end
+
+(* Module for possibly declaring a logic function for "createexteriors" defined at house_exterior.ads:20, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+module House_exterior__createexteriors
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_exterior__houseexterior
+  
+  function   createexteriors (__void_param : unit) requires { True } ensures 
+    { True } returns House_exterior__houseexterior.houseexterior
+  
+  function   createexteriors__function_guard
+    (([mlw:proxy_symbol]
+    [introduced] temp___result_162) : House_exterior__houseexterior.houseexterior
+    __void_param : unit) requires { True } ensures  { True } returns bool
+  
+  scope Dispatch function   createexteriors
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures  { True } returns
+                   House_exterior__houseexterior.houseexterior
+    function   createexteriors__function_guard
+      (([mlw:proxy_symbol]
+      [introduced] temp___result_162) : House_exterior__houseexterior.houseexterior
+      attr__tag : int __void_param : unit) requires { True } ensures 
+      { True } returns bool end
+
+end
+
+(* Module for possibly declaring a logic function for "createaircon" defined at clean_air.ads:26, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+module Clean_air__createaircon
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Clean_air__cleanair
+  
+  function   createaircon (__void_param : unit) requires { True } ensures 
+    { True } returns Clean_air__cleanair.cleanair
+  
+  function   createaircon__function_guard
+    (([mlw:proxy_symbol]
+    [introduced] temp___result_163) : Clean_air__cleanair.cleanair
+    __void_param : unit) requires { True } ensures  { True } returns bool
+  
+  scope Dispatch function   createaircon
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures  { True } returns Clean_air__cleanair.cleanair
+    function   createaircon__function_guard
+      (([mlw:proxy_symbol]
+      [introduced] temp___result_163) : Clean_air__cleanair.cleanair
+      attr__tag : int __void_param : unit) requires { True } ensures 
+      { True } returns bool end
+
+end
+
+(* Module for possibly declaring a logic function for "createfridge" defined at house_appliances.ads:20, created in Gnat2Why.Subprograms.Translate_Subprogram_Spec *)
+module House_appliances__createfridge
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_appliances__houseappliances
+  
+  function   createfridge (__void_param : unit) requires { True } ensures 
+    { True } returns House_appliances__houseappliances.houseappliances
+  
+  function   createfridge__function_guard
+    (([mlw:proxy_symbol]
+    [introduced] temp___result_164) : House_appliances__houseappliances.houseappliances
+    __void_param : unit) requires { True } ensures  { True } returns bool
+  
+  scope Dispatch function   createfridge
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures  { True } returns
+                   House_appliances__houseappliances.houseappliances
+    function   createfridge__function_guard
+      (([mlw:proxy_symbol]
+      [introduced] temp___result_164) : House_appliances__houseappliances.houseappliances
+      attr__tag : int __void_param : unit) requires { True } ensures 
+      { True } returns bool end
+
+end
+
+(* Module giving axioms for type "house" defined at house.ads:11, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House__house___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_heating__househeating
+  use        House_heating__createheating
+  use        House_exterior__houseexterior
+  use        House_exterior__createexteriors
+  use        Clean_air__cleanair
+  use        Clean_air__createaircon
+  use        House_appliances__houseappliances
+  use        House_appliances__createfridge
+  use        House__house
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_258) : House__house.house
+    ([mlw:proxy_symbol] [introduced] temp___is_init_254) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_255) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_256) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_257) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_259) : House__house.house
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_260) : bool)
+    requires { True } ensures  { True } returns
+     = (((House__house.attr__tag ([mlw:proxy_symbol]
+            [introduced] temp___expr_259)) = House__house.__tag) /\
+          ((if
+           (House__house.house__house__heating__pred ([mlw:proxy_symbol]
+              [introduced] temp___expr_259))
+           then
+           (([mlw:proxy_symbol]
+              [introduced] temp___expr_259).House__house.__split_fields.House__house.rec__house__house__heating
+              = --pp_record_update NOT IMPLEMENTED)
+           ) /\
+             (if
+             (House__house.house__house__exterior__pred ([mlw:proxy_symbol]
+                [introduced] temp___expr_259))
+             then
+             (([mlw:proxy_symbol]
+                [introduced] temp___expr_259).House__house.__split_fields.House__house.rec__house__house__exterior
+                = --pp_record_update NOT IMPLEMENTED)
+             ) /\
+             (if
+             (House__house.house__house__air__pred ([mlw:proxy_symbol]
+                [introduced] temp___expr_259))
+             then
+             (([mlw:proxy_symbol]
+                [introduced] temp___expr_259).House__house.__split_fields.House__house.rec__house__house__air
+                = --pp_record_update NOT IMPLEMENTED)
+             ) /\
+             (if
+             (House__house.house__house__appliances__pred ([mlw:proxy_symbol]
+                [introduced] temp___expr_259))
+             then
+             (([mlw:proxy_symbol]
+                [introduced] temp___expr_259).House__house.__split_fields.House__house.rec__house__house__appliances
+                = --pp_record_update NOT IMPLEMENTED)
+             )))
+
+end
+
+(* Module giving axioms for type "househeating" defined at house_heating.ads:13, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_heating__househeating___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_heating__househeating
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_184) : House_heating__househeating.househeating
+    ([mlw:proxy_symbol] [introduced] temp___is_init_180) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_181) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_182) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_183) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_185) : House_heating__househeating.househeating
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_186) : bool)
+    requires { True } ensures  { True } returns
+     = ((House_heating__househeating.attr__tag ([mlw:proxy_symbol]
+           [introduced] temp___expr_185)) = House_heating__househeating.__tag)
+
+end
+
+(* Module for axiomatizing type "ThouseheatingC" defined at house_heating.ads:13, created in Gnat2Why.Types.Translate_Type *)
+module House_heating__ThouseheatingC
+  
+  use export House_heating__househeating
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "update" defined at house_heating.ads:18, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module House_heating__update___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_heating__househeating
+  use        House_heating__househeating___axiom
+  use        House_heating__temperature
+  use        House_heating__temperature__rep
+  use        House_heating__heatingstatus
+  use        House_heating__heatingstatus__rep
+  use        House_heating__ThouseheatingC
+  
+  function   update
+    (this__split_fields : House_heating__househeating.__split_fields__ref
+    this__attr__tag : int) requires
+    { ([GP_Pretty_Ada:3720] (let ([mlw:proxy_symbol] [introduced] temp___293)
+      =
+      (House_heating__temperature__rep.to_rep
+         ( --pp_record_aggregate NOT IMPLEMENTED).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__temp)
+      in
+      ((17 <= ([mlw:proxy_symbol] [introduced] temp___293)) /\
+         (([mlw:proxy_symbol] [introduced] temp___293) <= 19)))) } ensures 
+    { (([GP_Pretty_Ada:3800] (((((((House_heating__heatingstatus__rep.to_rep
+                                      ( --pp_record_aggregate NOT IMPLEMENTED).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                     = 0) /\
+                                    ((House_heating__temperature__rep.to_rep
+                                        --pp_tagged NOT IMPLEMENTED) < 17))
+                                   /\
+                                   ((House_heating__temperature__rep.to_rep
+                                       ( --pp_record_aggregate NOT IMPLEMENTED).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__temp)
+                                      = ((House_heating__temperature__rep.to_rep
+                                            --pp_tagged NOT IMPLEMENTED) + 1)))
+                                  \/
+                                  ((((House_heating__heatingstatus__rep.to_rep
+                                        ( --pp_record_aggregate NOT IMPLEMENTED).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                       = 1) /\
+                                      ((House_heating__temperature__rep.to_rep
+                                          --pp_tagged NOT IMPLEMENTED) > 19))
+                                     /\
+                                     ((House_heating__temperature__rep.to_rep
+                                         ( --pp_record_aggregate NOT IMPLEMENTED).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__temp)
+                                        = ((House_heating__temperature__rep.to_rep
+                                              --pp_tagged NOT IMPLEMENTED)
+                                             - 1)))) \/
+                                 (((House_heating__heatingstatus__rep.to_rep
+                                      ( --pp_record_aggregate NOT IMPLEMENTED).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                     = 1) /\
+                                    ((House_heating__temperature__rep.to_rep
+                                        --pp_tagged NOT IMPLEMENTED) <= 19)))
+                                \/
+                                (((House_heating__heatingstatus__rep.to_rep
+                                     ( --pp_record_aggregate NOT IMPLEMENTED).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                    = 0) /\
+                                   ((House_heating__temperature__rep.to_rep
+                                       --pp_tagged NOT IMPLEMENTED) >= 17))))
+         /\
+         (House_heating__househeating___axiom.dynamic_invariant
+            --pp_record_aggregate NOT IMPLEMENTED True True True True)) }
+    returns unit
+  
+  scope Dispatch function   update__specific_post
+                   (attr__tag : int
+                   this__split_fields : House_heating__househeating.__split_fields
+                   this__attr__tag : int
+                   this__split_fields___old : House_heating__househeating.__split_fields)
+                   requires { True } ensures  { True } returns bool
+    function   update
+      (this__split_fields : House_heating__househeating.__split_fields__ref
+      this__attr__tag : int) requires
+      { ([GP_Pretty_Ada:4929] (let ([mlw:proxy_symbol]
+        [introduced] temp___294) =
+        (House_heating__temperature__rep.to_rep
+           ( ( --pp_record_aggregate NOT IMPLEMENTED)).House_heating__ThouseheatingC.__split_fields.House_heating__ThouseheatingC.rec__house_heating__househeating__temp)
+        in
+        ((17 <= ([mlw:proxy_symbol] [introduced] temp___294)) /\
+           (([mlw:proxy_symbol] [introduced] temp___294) <= 19)))) } ensures 
+      { (True /\
+           (House_heating__househeating___axiom.dynamic_invariant
+              --pp_record_aggregate NOT IMPLEMENTED True True True True) /\
+           (update__specific_post this__attr__tag !this__split_fields
+              this__attr__tag --pp_tagged NOT IMPLEMENTED)) } returns unit end
+  
+  axiom house_heating__househeating__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "houseexterior" defined at house_exterior.ads:6, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_exterior__houseexterior___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_exterior__houseexterior
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_200) : House_exterior__houseexterior.houseexterior
+    ([mlw:proxy_symbol] [introduced] temp___is_init_196) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_197) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_198) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_199) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_201) : House_exterior__houseexterior.houseexterior
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_202) : bool)
+    requires { True } ensures  { True } returns
+     = ((House_exterior__houseexterior.attr__tag ([mlw:proxy_symbol]
+           [introduced] temp___expr_201))
+          = House_exterior__houseexterior.__tag)
+
+end
+
+(* Module for axiomatizing type "ThouseexteriorC" defined at house_exterior.ads:6, created in Gnat2Why.Types.Translate_Type *)
+module House_exterior__ThouseexteriorC
+  
+  use export House_exterior__houseexterior
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "updatelocked" defined at house_exterior.ads:10, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module House_exterior__updatelocked___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_exterior__houseexterior
+  use        House_exterior__houseexterior___axiom
+  use        House_exterior__exteriorstatus
+  use        House_exterior__exteriorstatus__rep
+  use        House_exterior__ThouseexteriorC
+  
+  function   updatelocked
+    (this__split_fields : House_exterior__houseexterior.__split_fields__ref
+    this__attr__tag : int) requires
+    { ([GP_Pretty_Ada:3847] ((House_exterior__exteriorstatus__rep.to_rep
+                                ( --pp_record_aggregate NOT IMPLEMENTED).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                               = 0)) } ensures 
+    { (([GP_Pretty_Ada:3859] ((House_exterior__exteriorstatus__rep.to_rep
+                                 ( --pp_record_aggregate NOT IMPLEMENTED).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                = 1)) /\
+         (House_exterior__houseexterior___axiom.dynamic_invariant
+            --pp_record_aggregate NOT IMPLEMENTED True True True True)) }
+    returns unit
+  
+  scope Dispatch function   updatelocked__specific_post
+                   (attr__tag : int
+                   this__split_fields : House_exterior__houseexterior.__split_fields
+                   this__attr__tag : int
+                   this__split_fields___old : House_exterior__houseexterior.__split_fields)
+                   requires { True } ensures  { True } returns bool
+    function   updatelocked
+      (this__split_fields : House_exterior__houseexterior.__split_fields__ref
+      this__attr__tag : int) requires
+      { ([GP_Pretty_Ada:4940] ((House_exterior__exteriorstatus__rep.to_rep
+                                  ( ( --pp_record_aggregate NOT IMPLEMENTED)).House_exterior__ThouseexteriorC.__split_fields.House_exterior__ThouseexteriorC.rec__house_exterior__houseexterior__status)
+                                 = 0)) } ensures 
+      { (([GP_Pretty_Ada:4949] ((House_exterior__exteriorstatus__rep.to_rep
+                                   ( ( --pp_record_aggregate NOT IMPLEMENTED)).House_exterior__ThouseexteriorC.__split_fields.House_exterior__ThouseexteriorC.rec__house_exterior__houseexterior__status)
+                                  = 1)) /\
+           (House_exterior__houseexterior___axiom.dynamic_invariant
+              --pp_record_aggregate NOT IMPLEMENTED True True True True) /\
+           (updatelocked__specific_post this__attr__tag !this__split_fields
+              this__attr__tag --pp_tagged NOT IMPLEMENTED)) } returns unit end
+  
+  axiom house_exterior__houseexterior__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "updateunlocked" defined at house_exterior.ads:16, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module House_exterior__updateunlocked___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_exterior__houseexterior
+  use        House_exterior__houseexterior___axiom
+  use        House_exterior__exteriorstatus
+  use        House_exterior__exteriorstatus__rep
+  use        House_exterior__ThouseexteriorC
+  
+  function   updateunlocked
+    (this__split_fields : House_exterior__houseexterior.__split_fields__ref
+    this__attr__tag : int) requires
+    { ([GP_Pretty_Ada:3874] ((House_exterior__exteriorstatus__rep.to_rep
+                                ( --pp_record_aggregate NOT IMPLEMENTED).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                               = 1)) } ensures 
+    { (([GP_Pretty_Ada:3886] ((House_exterior__exteriorstatus__rep.to_rep
+                                 ( --pp_record_aggregate NOT IMPLEMENTED).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                = 0)) /\
+         (House_exterior__houseexterior___axiom.dynamic_invariant
+            --pp_record_aggregate NOT IMPLEMENTED True True True True)) }
+    returns unit
+  
+  scope Dispatch function   updateunlocked__specific_post
+                   (attr__tag : int
+                   this__split_fields : House_exterior__houseexterior.__split_fields
+                   this__attr__tag : int
+                   this__split_fields___old : House_exterior__houseexterior.__split_fields)
+                   requires { True } ensures  { True } returns bool
+    function   updateunlocked
+      (this__split_fields : House_exterior__houseexterior.__split_fields__ref
+      this__attr__tag : int) requires
+      { ([GP_Pretty_Ada:4958] ((House_exterior__exteriorstatus__rep.to_rep
+                                  ( ( --pp_record_aggregate NOT IMPLEMENTED)).House_exterior__ThouseexteriorC.__split_fields.House_exterior__ThouseexteriorC.rec__house_exterior__houseexterior__status)
+                                 = 1)) } ensures 
+      { (([GP_Pretty_Ada:4967] ((House_exterior__exteriorstatus__rep.to_rep
+                                   ( ( --pp_record_aggregate NOT IMPLEMENTED)).House_exterior__ThouseexteriorC.__split_fields.House_exterior__ThouseexteriorC.rec__house_exterior__houseexterior__status)
+                                  = 0)) /\
+           (House_exterior__houseexterior___axiom.dynamic_invariant
+              --pp_record_aggregate NOT IMPLEMENTED True True True True) /\
+           (updateunlocked__specific_post this__attr__tag !this__split_fields
+              this__attr__tag --pp_tagged NOT IMPLEMENTED)) } returns unit end
+  
+  axiom house_exterior__houseexterior__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "cleanair" defined at clean_air.ads:13, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Clean_air__cleanair___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Clean_air__cleanair
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_222) : Clean_air__cleanair.cleanair
+    ([mlw:proxy_symbol] [introduced] temp___is_init_218) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_219) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_220) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_221) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_223) : Clean_air__cleanair.cleanair
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_224) : bool)
+    requires { True } ensures  { True } returns
+     = ((Clean_air__cleanair.attr__tag ([mlw:proxy_symbol]
+           [introduced] temp___expr_223)) = Clean_air__cleanair.__tag)
+
+end
+
+(* Module for axiomatizing type "TcleanairC" defined at clean_air.ads:13, created in Gnat2Why.Types.Translate_Type *)
+module Clean_air__TcleanairC
+  
+  use export Clean_air__cleanair
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "update" defined at clean_air.ads:18, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module Clean_air__update___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Clean_air__cleanair
+  use        Clean_air__cleanair___axiom
+  use        Clean_air__carbon
+  use        Clean_air__carbon__rep
+  use        Clean_air__aircon
+  use        Clean_air__aircon__rep
+  use        Clean_air__TcleanairC
+  
+  function   update
+    (this__split_fields : Clean_air__cleanair.__split_fields__ref
+    this__attr__tag : int) requires
+    { (([GP_Pretty_Ada:1390] (let ([mlw:proxy_symbol]
+       [introduced] temp___314) =
+       (Clean_air__carbon__rep.to_rep
+          ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+       in
+       ((0 <= ([mlw:proxy_symbol] [introduced] temp___314)) /\
+          (([mlw:proxy_symbol] [introduced] temp___314) <= 8)))) /\
+         ([GP_Pretty_Ada:1397] (let ([mlw:proxy_symbol]
+         [introduced] temp___315) =
+         (Clean_air__aircon__rep.to_rep
+            ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+         in
+         (Clean_air__aircon.in_range ([mlw:proxy_symbol]
+            [introduced] temp___315))))) } ensures 
+    { ((([GP_Pretty_Ada:1405] (let ([mlw:proxy_symbol]
+        [introduced] temp___318) =
+        (Clean_air__carbon__rep.to_rep
+           ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+        in
+        ((0 <= ([mlw:proxy_symbol] [introduced] temp___318)) /\
+           (([mlw:proxy_symbol] [introduced] temp___318) <= 8)))) /\
+          ([GP_Pretty_Ada:1423] ((((Clean_air__aircon__rep.to_rep
+                                      ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                     = 1) /\
+                                    ((Clean_air__carbon__rep.to_rep
+                                        ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                       <= 4)) \/
+                                   (((Clean_air__aircon__rep.to_rep
+                                        ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                                       = 0) /\
+                                      ((Clean_air__carbon__rep.to_rep
+                                          ( --pp_record_aggregate NOT IMPLEMENTED).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                         <= 9))))) /\
+         (Clean_air__cleanair___axiom.dynamic_invariant
+            --pp_record_aggregate NOT IMPLEMENTED True True True True)) }
+    returns unit
+  
+  scope Dispatch function   update__specific_post
+                   (attr__tag : int
+                   this__split_fields : Clean_air__cleanair.__split_fields
+                   this__attr__tag : int
+                   this__split_fields___old : Clean_air__cleanair.__split_fields)
+                   requires { True } ensures  { True } returns bool
+    function   update
+      (this__split_fields : Clean_air__cleanair.__split_fields__ref
+      this__attr__tag : int) requires
+      { (([GP_Pretty_Ada:4977] (let ([mlw:proxy_symbol]
+         [introduced] temp___316) =
+         (Clean_air__carbon__rep.to_rep
+            ( ( --pp_record_aggregate NOT IMPLEMENTED)).Clean_air__TcleanairC.__split_fields.Clean_air__TcleanairC.rec__clean_air__cleanair__carb)
+         in
+         ((0 <= ([mlw:proxy_symbol] [introduced] temp___316)) /\
+            (([mlw:proxy_symbol] [introduced] temp___316) <= 8)))) /\
+           ([GP_Pretty_Ada:4984] (let ([mlw:proxy_symbol]
+           [introduced] temp___317) =
+           (Clean_air__aircon__rep.to_rep
+              ( ( --pp_record_aggregate NOT IMPLEMENTED)).Clean_air__TcleanairC.__split_fields.Clean_air__TcleanairC.rec__clean_air__cleanair__status)
+           in
+           (Clean_air__aircon.in_range ([mlw:proxy_symbol]
+              [introduced] temp___317))))) } ensures 
+      { (True /\
+           (Clean_air__cleanair___axiom.dynamic_invariant
+              --pp_record_aggregate NOT IMPLEMENTED True True True True) /\
+           (update__specific_post this__attr__tag !this__split_fields
+              this__attr__tag --pp_tagged NOT IMPLEMENTED)) } returns unit end
+  
+  axiom clean_air__cleanair__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "houseappliances" defined at house_appliances.ads:7, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_appliances__houseappliances___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_appliances__houseappliances
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_245) : House_appliances__houseappliances.houseappliances
+    ([mlw:proxy_symbol] [introduced] temp___is_init_241) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_242) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_243) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_244) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_246) : House_appliances__houseappliances.houseappliances
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_247) : bool)
+    requires { True } ensures  { True } returns
+     = ((House_appliances__houseappliances.attr__tag ([mlw:proxy_symbol]
+           [introduced] temp___expr_246))
+          = House_appliances__houseappliances.__tag)
+
+end
+
+(* Module for axiomatizing type "ThouseappliancesC" defined at house_appliances.ads:7, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__ThouseappliancesC
+  
+  use export House_appliances__houseappliances
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "unlocklock" defined at house_appliances.ads:12, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module House_appliances__unlocklock___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_appliances__houseappliances
+  use        House_appliances__houseappliances___axiom
+  use        House_appliances__unlocked
+  use        House_appliances__unlocked__rep
+  use        House_appliances__locked
+  use        House_appliances__locked__rep
+  use        House_appliances__ThouseappliancesC
+  
+  function   unlocklock
+    (this__split_fields : House_appliances__houseappliances.__split_fields__ref
+    this__attr__tag : int) requires
+    { ([GP_Pretty_Ada:4047] (((House_appliances__unlocked__rep.to_rep
+                                 ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                = 0) \/
+                               ((House_appliances__unlocked__rep.to_rep
+                                   ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                  = 1))) } ensures 
+    { (([GP_Pretty_Ada:4077] ((((House_appliances__unlocked__rep.to_rep
+                                   ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                  = 0) /\
+                                 ((House_appliances__locked__rep.to_rep
+                                     ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+                                    = 1)) \/
+                                (((House_appliances__unlocked__rep.to_rep
+                                     ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                    = 1) /\
+                                   ((House_appliances__locked__rep.to_rep
+                                       ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+                                      = 0)))) /\
+         (House_appliances__houseappliances___axiom.dynamic_invariant
+            --pp_record_aggregate NOT IMPLEMENTED True True True True)) }
+    returns unit
+  
+  scope Dispatch function   unlocklock__specific_post
+                   (attr__tag : int
+                   this__split_fields : House_appliances__houseappliances.__split_fields
+                   this__attr__tag : int
+                   this__split_fields___old : House_appliances__houseappliances.__split_fields)
+                   requires { True } ensures  { True } returns bool
+    function   unlocklock
+      (this__split_fields : House_appliances__houseappliances.__split_fields__ref
+      this__attr__tag : int) requires
+      { ([GP_Pretty_Ada:4997] (((House_appliances__unlocked__rep.to_rep
+                                   ( ( --pp_record_aggregate NOT IMPLEMENTED)).House_appliances__ThouseappliancesC.__split_fields.House_appliances__ThouseappliancesC.rec__house_appliances__houseappliances__statusunlocked)
+                                  = 0) \/
+                                 ((House_appliances__unlocked__rep.to_rep
+                                     ( ( --pp_record_aggregate NOT IMPLEMENTED)).House_appliances__ThouseappliancesC.__split_fields.House_appliances__ThouseappliancesC.rec__house_appliances__houseappliances__statusunlocked)
+                                    = 1))) } ensures 
+      { (True /\
+           (House_appliances__houseappliances___axiom.dynamic_invariant
+              --pp_record_aggregate NOT IMPLEMENTED True True True True) /\
+           (unlocklock__specific_post this__attr__tag !this__split_fields
+              this__attr__tag --pp_tagged NOT IMPLEMENTED)) } returns unit end
+  
+  axiom house_appliances__houseappliances__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving an empty axiom for the entity "this" defined at house.ads:20, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+module House__update__this___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module giving axioms for type "heatingstatus" defined at house_heating.ads:4, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_heating__heatingstatus___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_heating__heatingstatus
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_177) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_173) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_174) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_175) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_176) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_173) = True) \/
+          (House_heating__heatingstatus.first
+             <= House_heating__heatingstatus.last))
+       then
+       (House_heating__heatingstatus.dynamic_property
+          House_heating__heatingstatus.first
+          House_heating__heatingstatus.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_177))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_178) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_179) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "temperature" defined at house_heating.ads:5, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_heating__temperature___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_heating__temperature
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_170) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_166) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_167) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_168) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_169) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_166) = True) \/
+          (House_heating__temperature.first
+             <= House_heating__temperature.last))
+       then
+       (House_heating__temperature.dynamic_property
+          House_heating__temperature.first House_heating__temperature.last
+          ([mlw:proxy_symbol] [introduced] temp___expr_170))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_171) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_172) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "createheating" defined at house_heating.ads:30, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module House_heating__createheating___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_heating__househeating
+  use        House_heating__createheating
+  use        House_heating__househeating___axiom
+  
+  function   createheating (__void_param : unit) requires { True } ensures 
+    { ((result = (House_heating__createheating.createheating ())) /\
+         (House_heating__createheating.createheating__function_guard result
+            ()) /\
+         (House_heating__househeating___axiom.dynamic_invariant result True
+            False True True)) } returns
+    House_heating__househeating.househeating
+  
+  scope Dispatch function   createheating
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures 
+                   { ((result
+                         = (House_heating__createheating.Dispatch.createheating
+                              attr__tag ())) /\
+                        (House_heating__createheating.Dispatch.createheating__function_guard
+                           result attr__tag ()) /\
+                        (House_heating__househeating___axiom.dynamic_invariant
+                           result True False True True)) } returns
+                   House_heating__househeating.househeating end
+  
+  axiom createheating__post_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom createheating__post__dispatch_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom house_heating__househeating__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "exteriorstatus" defined at house_exterior.ads:4, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_exterior__exteriorstatus___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_exterior__exteriorstatus
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_193) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_189) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_190) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_191) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_192) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_189) = True) \/
+          (House_exterior__exteriorstatus.first
+             <= House_exterior__exteriorstatus.last))
+       then
+       (House_exterior__exteriorstatus.dynamic_property
+          House_exterior__exteriorstatus.first
+          House_exterior__exteriorstatus.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_193))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_194) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_195) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "createexteriors" defined at house_exterior.ads:20, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module House_exterior__createexteriors___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_exterior__houseexterior
+  use        House_exterior__createexteriors
+  use        House_exterior__houseexterior___axiom
+  
+  function   createexteriors (__void_param : unit) requires { True } ensures 
+    { ((result = (House_exterior__createexteriors.createexteriors ())) /\
+         (House_exterior__createexteriors.createexteriors__function_guard
+            result ()) /\
+         (House_exterior__houseexterior___axiom.dynamic_invariant result True
+            False True True)) } returns
+    House_exterior__houseexterior.houseexterior
+  
+  scope Dispatch function   createexteriors
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures 
+                   { ((result
+                         = (House_exterior__createexteriors.Dispatch.createexteriors
+                              attr__tag ())) /\
+                        (House_exterior__createexteriors.Dispatch.createexteriors__function_guard
+                           result attr__tag ()) /\
+                        (House_exterior__houseexterior___axiom.dynamic_invariant
+                           result True False True True)) } returns
+                   House_exterior__houseexterior.houseexterior end
+  
+  axiom createexteriors__post_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom createexteriors__post__dispatch_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom house_exterior__houseexterior__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "carbon" defined at clean_air.ads:5, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Clean_air__carbon___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Clean_air__carbon
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_208) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_204) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_205) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_206) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_207) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_204) = True) \/
+          (Clean_air__carbon.first <= Clean_air__carbon.last))
+       then
+       (Clean_air__carbon.dynamic_property Clean_air__carbon.first
+          Clean_air__carbon.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_208))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_209) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_210) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "aircon" defined at clean_air.ads:6, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Clean_air__aircon___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        Clean_air__aircon
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_215) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_211) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_212) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_213) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_214) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_211) = True) \/
+          (Clean_air__aircon.first <= Clean_air__aircon.last))
+       then
+       (Clean_air__aircon.dynamic_property Clean_air__aircon.first
+          Clean_air__aircon.last ([mlw:proxy_symbol]
+          [introduced] temp___expr_215))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_216) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_217) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "createaircon" defined at clean_air.ads:26, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module Clean_air__createaircon___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Clean_air__cleanair
+  use        Clean_air__createaircon
+  use        Clean_air__cleanair___axiom
+  
+  function   createaircon (__void_param : unit) requires { True } ensures 
+    { ((result = (Clean_air__createaircon.createaircon ())) /\
+         (Clean_air__createaircon.createaircon__function_guard result ()) /\
+         (Clean_air__cleanair___axiom.dynamic_invariant result True False
+            True True)) } returns Clean_air__cleanair.cleanair
+  
+  scope Dispatch function   createaircon
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures 
+                   { ((result
+                         = (Clean_air__createaircon.Dispatch.createaircon
+                              attr__tag ())) /\
+                        (Clean_air__createaircon.Dispatch.createaircon__function_guard
+                           result attr__tag ()) /\
+                        (Clean_air__cleanair___axiom.dynamic_invariant result
+                           True False True True)) } returns
+                   Clean_air__cleanair.cleanair end
+  
+  axiom createaircon__post_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom createaircon__post__dispatch_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom clean_air__cleanair__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "unlocked" defined at house_appliances.ads:4, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_appliances__unlocked___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_appliances__unlocked
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_231) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_227) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_228) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_229) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_230) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_227) = True) \/
+          (House_appliances__unlocked.first
+             <= House_appliances__unlocked.last))
+       then
+       (House_appliances__unlocked.dynamic_property
+          House_appliances__unlocked.first House_appliances__unlocked.last
+          ([mlw:proxy_symbol] [introduced] temp___expr_231))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_232) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_233) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "locked" defined at house_appliances.ads:5, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_appliances__locked___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_appliances__locked
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_238) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_234) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_235) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_236) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_237) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_234) = True) \/
+          (House_appliances__locked.first <= House_appliances__locked.last))
+       then
+       (House_appliances__locked.dynamic_property
+          House_appliances__locked.first House_appliances__locked.last
+          ([mlw:proxy_symbol] [introduced] temp___expr_238))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_239) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_240) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module for declaring a program function (and possibly an axiom) for "createfridge" defined at house_appliances.ads:20, created in Gnat2Why.Subprograms.Generate_Subprogram_Completion *)
+module House_appliances__createfridge___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_appliances__houseappliances
+  use        House_appliances__createfridge
+  use        House_appliances__houseappliances___axiom
+  
+  function   createfridge (__void_param : unit) requires { True } ensures 
+    { ((result = (House_appliances__createfridge.createfridge ())) /\
+         (House_appliances__createfridge.createfridge__function_guard result
+            ()) /\
+         (House_appliances__houseappliances___axiom.dynamic_invariant result
+            True False True True)) } returns
+    House_appliances__houseappliances.houseappliances
+  
+  scope Dispatch function   createfridge
+                   (attr__tag : int __void_param : unit) requires { True }
+                   ensures 
+                   { ((result
+                         = (House_appliances__createfridge.Dispatch.createfridge
+                              attr__tag ())) /\
+                        (House_appliances__createfridge.Dispatch.createfridge__function_guard
+                           result attr__tag ()) /\
+                        (House_appliances__houseappliances___axiom.dynamic_invariant
+                           result True False True True)) } returns
+                   House_appliances__houseappliances.houseappliances end
+  
+  axiom createfridge__post_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom createfridge__post__dispatch_axiom : --pp_universal_quantif NOT IMPLEMENTED
+  
+  axiom house_appliances__houseappliances__compat_axiom : --pp_universal_quantif NOT IMPLEMENTED
+
+end
+
+(* Module giving axioms for type "ThouseheatingC" defined at house_heating.ads:13, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_heating__ThouseheatingC___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_heating__househeating
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_292) : House_heating__househeating.househeating
+    ([mlw:proxy_symbol] [introduced] temp___is_init_288) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_289) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_290) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_291) : bool) requires
+    { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "ThouseexteriorC" defined at house_exterior.ads:6, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_exterior__ThouseexteriorC___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_exterior__houseexterior
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_306) : House_exterior__houseexterior.houseexterior
+    ([mlw:proxy_symbol] [introduced] temp___is_init_302) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_303) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_304) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_305) : bool) requires
+    { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "TcleanairC" defined at clean_air.ads:13, created in Gnat2Why.Types.Generate_Type_Completion *)
+module Clean_air__TcleanairC___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        Clean_air__cleanair
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_313) : Clean_air__cleanair.cleanair
+    ([mlw:proxy_symbol] [introduced] temp___is_init_309) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_310) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_311) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_312) : bool) requires
+    { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "ThouseappliancesC" defined at house_appliances.ads:7, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_appliances__ThouseappliancesC___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_appliances__houseappliances
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_325) : House_appliances__houseappliances.houseappliances
+    ([mlw:proxy_symbol] [introduced] temp___is_init_321) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_322) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_323) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_324) : bool) requires
+    { True } ensures  { True } returns  = True
+
+end
+
+(* Module for checking contracts and absence of run-time errors in subprogram "update" defined at house.ads:20, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+module House__update__subprogram_def
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        _gnatprove_standard.Boolean
+  use        House_heating__househeating
+  use        House_exterior__houseexterior
+  use        Clean_air__cleanair
+  use        House_appliances__houseappliances
+  use        House__house
+  use        House__update__this
+  use        House__house___axiom
+  use        House_heating__update___axiom
+  use        House_exterior__updatelocked___axiom
+  use        House_exterior__updateunlocked___axiom
+  use        Clean_air__update___axiom
+  use        House_appliances__unlocklock___axiom
+  use        House_heating__temperature
+  use        House_heating__temperature__rep
+  use        House_heating__heatingstatus
+  use        House_heating__heatingstatus__rep
+  use        House_exterior__exteriorstatus
+  use        House_exterior__exteriorstatus__rep
+  use        Clean_air__carbon
+  use        Clean_air__carbon__rep
+  use        Clean_air__aircon
+  use        Clean_air__aircon__rep
+  use        House_appliances__unlocked
+  use        House_appliances__unlocked__rep
+  use        House_appliances__locked
+  use        House_appliances__locked__rep
+  use        House__house___axiom
+  use        House__update__this___axiom
+  use        House_heating__heatingstatus___axiom
+  use        House_heating__temperature___axiom
+  use        House_heating__househeating___axiom
+  use        House_heating__update___axiom
+  use        House_heating__createheating___axiom
+  use        House_exterior__exteriorstatus___axiom
+  use        House_exterior__houseexterior___axiom
+  use        House_exterior__updatelocked___axiom
+  use        House_exterior__updateunlocked___axiom
+  use        House_exterior__createexteriors___axiom
+  use        Clean_air__carbon___axiom
+  use        Clean_air__aircon___axiom
+  use        Clean_air__cleanair___axiom
+  use        Clean_air__update___axiom
+  use        Clean_air__createaircon___axiom
+  use        House_appliances__unlocked___axiom
+  use        House_appliances__locked___axiom
+  use        House_appliances__houseappliances___axiom
+  use        House_appliances__unlocklock___axiom
+  use        House_appliances__createfridge___axiom
+  use        House_heating__ThouseheatingC___axiom
+  use        House_exterior__ThouseexteriorC___axiom
+  use        Clean_air__TcleanairC___axiom
+  use        House_appliances__ThouseappliancesC___axiom
+  
+  function [GP_Subp:house.ads:20] [sloc:house.ads:20] def
+    (__void_param : unit) requires { True } ensures 
+    { ([sloc:house.ads:33] ([comment:      ((This.heating.status = On and This.exterior.status = Shut) or        ^ house.ads:33:7:VC_POSTCONDITION]
+                           [GP_Reason:VC_POSTCONDITION] [model_vc_post]
+                           [GP_Shape:pragargs__and] [GP_Id:5]
+                           [GP_Sloc:house.ads:33:7] (([GP_Pretty_Ada:1066]
+                                                     [GP_Sloc:house.ads:33:7] (
+                                                     (((House_heating__heatingstatus__rep.to_rep
+                                                          ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                                         = 0) /\
+                                                        ((House_exterior__exteriorstatus__rep.to_rep
+                                                            ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                                           = 1)) \/
+                                                       (((House_heating__heatingstatus__rep.to_rep
+                                                            ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                                           = 1) /\
+                                                          ((House_exterior__exteriorstatus__rep.to_rep
+                                                              ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                                             = 0)))) /\
+                                                       ([GP_Pretty_Ada:1089]
+                                                       [GP_Sloc:house.ads:36:6] (let ([mlw:proxy_symbol]
+                                                       [introduced] temp___352)
+                                                       =
+                                                       (Clean_air__carbon__rep.to_rep
+                                                          ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__air).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                                                       in
+                                                       ((0
+                                                           <= ([mlw:proxy_symbol]
+                                                           [introduced] temp___352))
+                                                          /\
+                                                          (([mlw:proxy_symbol]
+                                                             [introduced] temp___352)
+                                                             <= 8))))))) }
+    returns
+     = (* Assume dynamic invariants of inputs of the subprogram house.ads:20 *);
+        assume
+        { (House__house___axiom.dynamic_invariant
+             --pp_record_aggregate NOT IMPLEMENTED True False True True) };
+        (* Assume moved pointers in outputs of the subprogram house.ads:20 *);
+        (* Check for RTE in the Pre of the subprogram house.ads:20 *);
+        abstract ensures
+        { True } begin  (let _ = True in ())  end;
+        (* Assume Pre of the subprogram house.ads:20 *);
+        assume
+        { ((((((([GP_Pretty_Ada:993] (let ([mlw:proxy_symbol]
+                [introduced] temp___345) =
+                (House_heating__temperature__rep.to_rep
+                   ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__temp)
+                in
+                ((17 <= ([mlw:proxy_symbol] [introduced] temp___345)) /\
+                   (([mlw:proxy_symbol] [introduced] temp___345) <= 19)))) /\
+                  ([GP_Pretty_Ada:1002] (let ([mlw:proxy_symbol]
+                  [introduced] temp___346) =
+                  (House_heating__heatingstatus__rep.to_rep
+                     ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                  in
+                  ((0 <= ([mlw:proxy_symbol] [introduced] temp___346)) /\
+                     (([mlw:proxy_symbol] [introduced] temp___346) <= 1)))))
+                 /\
+                 ([GP_Pretty_Ada:1011] (let ([mlw:proxy_symbol]
+                 [introduced] temp___347) =
+                 (House_exterior__exteriorstatus__rep.to_rep
+                    ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                 in
+                 ((0 <= ([mlw:proxy_symbol] [introduced] temp___347)) /\
+                    (([mlw:proxy_symbol] [introduced] temp___347) <= 1)))))
+                /\
+                ([GP_Pretty_Ada:1020] (let ([mlw:proxy_symbol]
+                [introduced] temp___348) =
+                (House_appliances__unlocked__rep.to_rep
+                   ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__appliances).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                in
+                ((0 <= ([mlw:proxy_symbol] [introduced] temp___348)) /\
+                   (([mlw:proxy_symbol] [introduced] temp___348) <= 1))))) /\
+               ([GP_Pretty_Ada:1029] (let ([mlw:proxy_symbol]
+               [introduced] temp___349) =
+               (House_appliances__locked__rep.to_rep
+                  ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__appliances).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+               in
+               ((0 <= ([mlw:proxy_symbol] [introduced] temp___349)) /\
+                  (([mlw:proxy_symbol] [introduced] temp___349) <= 1))))) /\
+              ([GP_Pretty_Ada:1038] (let ([mlw:proxy_symbol]
+              [introduced] temp___350) =
+              (Clean_air__carbon__rep.to_rep
+                 ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__air).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+              in
+              ((0 <= ([mlw:proxy_symbol] [introduced] temp___350)) /\
+                 (([mlw:proxy_symbol] [introduced] temp___350) <= 8))))) /\
+             ([GP_Pretty_Ada:1047] (let ([mlw:proxy_symbol]
+             [introduced] temp___351) =
+             (Clean_air__aircon__rep.to_rep
+                ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__air).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+             in
+             ((0 <= ([mlw:proxy_symbol] [introduced] temp___351)) /\
+                (([mlw:proxy_symbol] [introduced] temp___351) <= 1))))) };
+        (try
+        ();
+          ([GP_Sloc:house.adb:14:19] ([sloc:house.adb:14] ()));
+          ([GP_Sloc:house.adb:14:19] ([sloc:house.adb:14] (let ([mlw:proxy_symbol]
+                                     [introduced] temp___compl_329) =
+                                     ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating)
+                                     in --pp_binding_ref NOT IMPLEMENTED)));
+          ([GP_Sloc:house.adb:17:7] ([sloc:house.adb:17] (if
+                                                         ([sloc:house.adb:17] ([branch_id=858]
+                                                         _gnatprove_standard.Main.spark__branch
+                                                         :=
+                                                         ((House_heating__heatingstatus__rep.to_rep
+                                                             ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                                            = 0)));
+                                                         ([branch_id=858] _gnatprove_standard.Main.spark__branch).bool__content
+                                                         then
+                                                         ();
+                                                         ([GP_Sloc:house.adb:19:10] 
+                                                         ([sloc:house.adb:19] 
+                                                         (if
+                                                         ([sloc:house.adb:19] ([branch_id=866]
+                                                         _gnatprove_standard.Main.spark__branch
+                                                         :=
+                                                         ((House_exterior__exteriorstatus__rep.to_rep
+                                                             ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                                            = 0)));
+                                                         ([branch_id=866] _gnatprove_standard.Main.spark__branch).bool__content
+                                                         then
+                                                         ();
+                                                         ([GP_Sloc:house.adb:20:13] 
+                                                         ([sloc:house.adb:20] ()));
+                                                         ([GP_Sloc:house.adb:20:13] 
+                                                         ([sloc:house.adb:20] (let ([mlw:proxy_symbol]
+                                                         [introduced] temp___compl_332)
+                                                         =
+                                                         ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior)
+                                                         in
+                                                         --pp_binding_ref NOT IMPLEMENTED)))
+                                                          else ())))  else
+                                                         ([GP_Sloc:house.adb:22:7] 
+                                                         (if
+                                                         ([sloc:house.adb:22] ([branch_id=880]
+                                                         _gnatprove_standard.Main.spark__branch
+                                                         :=
+                                                         ((House_heating__heatingstatus__rep.to_rep
+                                                             ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                                            = 1)));
+                                                         ([branch_id=880] _gnatprove_standard.Main.spark__branch).bool__content
+                                                         then
+                                                         ();
+                                                         ([GP_Sloc:house.adb:24:10] 
+                                                         ([sloc:house.adb:24] 
+                                                         (if
+                                                         ([sloc:house.adb:24] ([branch_id=887]
+                                                         _gnatprove_standard.Main.spark__branch
+                                                         :=
+                                                         ((House_exterior__exteriorstatus__rep.to_rep
+                                                             ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                                            = 1)));
+                                                         ([branch_id=887] _gnatprove_standard.Main.spark__branch).bool__content
+                                                         then
+                                                         ();
+                                                         ([GP_Sloc:house.adb:25:13] 
+                                                         ([sloc:house.adb:25] ()));
+                                                         ([GP_Sloc:house.adb:25:13] 
+                                                         ([sloc:house.adb:25] (let ([mlw:proxy_symbol]
+                                                         [introduced] temp___compl_335)
+                                                         =
+                                                         ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior)
+                                                         in
+                                                         --pp_binding_ref NOT IMPLEMENTED)))
+                                                          else ())))  else 
+                                                         ())))));
+          ([GP_Sloc:house.adb:29:15] ([sloc:house.adb:29] ()));
+          ([GP_Sloc:house.adb:29:15] ([sloc:house.adb:29] (let ([mlw:proxy_symbol]
+                                     [introduced] temp___compl_338) =
+                                     ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__air)
+                                     in --pp_binding_ref NOT IMPLEMENTED)));
+          ([GP_Sloc:house.adb:30:22] ([sloc:house.adb:30] ()));
+          ([GP_Sloc:house.adb:30:22] ([sloc:house.adb:30] (let ([mlw:proxy_symbol]
+                                     [introduced] temp___compl_341) =
+                                     ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__appliances)
+                                     in --pp_binding_ref NOT IMPLEMENTED)));
+          raise Return__exc with | Return__exc  -> ());
+        abstract ensures
+        { True } begin  (let _ =
+                       (_gnatprove_standard.Boolean.andb
+                          (_gnatprove_standard.Boolean.orb
+                             (_gnatprove_standard.Boolean.andb
+                                ((House_heating__heatingstatus__rep.to_rep
+                                    ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                   = 0)
+                                ((House_exterior__exteriorstatus__rep.to_rep
+                                    ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                   = 1))
+                             (_gnatprove_standard.Boolean.andb
+                                ((House_heating__heatingstatus__rep.to_rep
+                                    ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                   = 1)
+                                ((House_exterior__exteriorstatus__rep.to_rep
+                                    ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                   = 0))) (let ([mlw:proxy_symbol]
+                          [introduced] temp___344) =
+                          (Clean_air__carbon__rep.to_rep
+                             ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__air).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                          in
+                          (_gnatprove_standard.Boolean.andb
+                             (0 <= ([mlw:proxy_symbol]
+                                [introduced] temp___344))
+                             (([mlw:proxy_symbol] [introduced] temp___344)
+                                <= 8))))
+                       in ())  end
+
+end
+
+(* Module for checking LSP for subprogram "update" defined at house.ads:20, created in Gnat2Why.Subprograms.Generate_VCs_For_LSP *)
+module House__update__subprogram_lsp
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Boolean
+  use        House_heating__househeating
+  use        House_exterior__houseexterior
+  use        Clean_air__cleanair
+  use        House_appliances__houseappliances
+  use        House__house
+  use        House__update__this
+  use        House__house___axiom
+  use        House_heating__temperature
+  use        House_heating__temperature__rep
+  use        House_heating__heatingstatus
+  use        House_heating__heatingstatus__rep
+  use        House_exterior__exteriorstatus
+  use        House_exterior__exteriorstatus__rep
+  use        Clean_air__carbon
+  use        Clean_air__carbon__rep
+  use        Clean_air__aircon
+  use        Clean_air__aircon__rep
+  use        House_appliances__unlocked
+  use        House_appliances__unlocked__rep
+  use        House_appliances__locked
+  use        House_appliances__locked__rep
+  use        House__house___axiom
+  use        House__update__this___axiom
+  use        House_heating__heatingstatus___axiom
+  use        House_heating__temperature___axiom
+  use        House_heating__househeating___axiom
+  use        House_heating__createheating___axiom
+  use        House_exterior__exteriorstatus___axiom
+  use        House_exterior__houseexterior___axiom
+  use        House_exterior__createexteriors___axiom
+  use        Clean_air__carbon___axiom
+  use        Clean_air__aircon___axiom
+  use        Clean_air__cleanair___axiom
+  use        Clean_air__createaircon___axiom
+  use        House_appliances__unlocked___axiom
+  use        House_appliances__locked___axiom
+  use        House_appliances__houseappliances___axiom
+  use        House_appliances__createfridge___axiom
+  
+  function [GP_Subp:house.ads:20] [sloc:house.ads:20] def
+    (__void_param : unit) requires { True } ensures  { True } returns
+     = assume
+        { (House__house___axiom.dynamic_invariant
+             --pp_record_aggregate NOT IMPLEMENTED True False True True) };
+        abstract ensures
+        { True } begin  (let _ =
+                       (_gnatprove_standard.Boolean.andb
+                          (_gnatprove_standard.Boolean.andb
+                             (_gnatprove_standard.Boolean.andb
+                                (_gnatprove_standard.Boolean.andb
+                                   (_gnatprove_standard.Boolean.andb
+                                      (_gnatprove_standard.Boolean.andb
+                                         (let ([mlw:proxy_symbol]
+                                         [introduced] temp___361) =
+                                         (House_heating__temperature__rep.to_rep
+                                            ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__temp)
+                                         in
+                                         (_gnatprove_standard.Boolean.andb
+                                            (17 <= ([mlw:proxy_symbol]
+                                               [introduced] temp___361))
+                                            (([mlw:proxy_symbol]
+                                               [introduced] temp___361) <= 19)))
+                                         (let ([mlw:proxy_symbol]
+                                         [introduced] temp___362) =
+                                         (House_heating__heatingstatus__rep.to_rep
+                                            ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__heating).House_heating__househeating.__split_fields.House_heating__househeating.rec__house_heating__househeating__status)
+                                         in
+                                         (_gnatprove_standard.Boolean.andb
+                                            (0 <= ([mlw:proxy_symbol]
+                                               [introduced] temp___362))
+                                            (([mlw:proxy_symbol]
+                                               [introduced] temp___362) <= 1))))
+                                      (let ([mlw:proxy_symbol]
+                                      [introduced] temp___363) =
+                                      (House_exterior__exteriorstatus__rep.to_rep
+                                         ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__exterior).House_exterior__houseexterior.__split_fields.House_exterior__houseexterior.rec__house_exterior__houseexterior__status)
+                                      in
+                                      (_gnatprove_standard.Boolean.andb
+                                         (0 <= ([mlw:proxy_symbol]
+                                            [introduced] temp___363))
+                                         (([mlw:proxy_symbol]
+                                            [introduced] temp___363) <= 1))))
+                                   (let ([mlw:proxy_symbol]
+                                   [introduced] temp___364) =
+                                   (House_appliances__unlocked__rep.to_rep
+                                      ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__appliances).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                   in
+                                   (_gnatprove_standard.Boolean.andb
+                                      (0 <= ([mlw:proxy_symbol]
+                                         [introduced] temp___364))
+                                      (([mlw:proxy_symbol]
+                                         [introduced] temp___364) <= 1))))
+                                (let ([mlw:proxy_symbol]
+                                [introduced] temp___365) =
+                                (House_appliances__locked__rep.to_rep
+                                   ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__appliances).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+                                in
+                                (_gnatprove_standard.Boolean.andb
+                                   (0 <= ([mlw:proxy_symbol]
+                                      [introduced] temp___365))
+                                   (([mlw:proxy_symbol]
+                                      [introduced] temp___365) <= 1))))
+                             (let ([mlw:proxy_symbol]
+                             [introduced] temp___366) =
+                             (Clean_air__carbon__rep.to_rep
+                                ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__air).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__carb)
+                             in
+                             (_gnatprove_standard.Boolean.andb
+                                (0 <= ([mlw:proxy_symbol]
+                                   [introduced] temp___366))
+                                (([mlw:proxy_symbol] [introduced] temp___366)
+                                   <= 8)))) (let ([mlw:proxy_symbol]
+                          [introduced] temp___367) =
+                          (Clean_air__aircon__rep.to_rep
+                             ( ( --pp_record_aggregate NOT IMPLEMENTED).House__house.__split_fields.House__house.rec__house__house__air).Clean_air__cleanair.__split_fields.Clean_air__cleanair.rec__clean_air__cleanair__status)
+                          in
+                          (_gnatprove_standard.Boolean.andb
+                             (0 <= ([mlw:proxy_symbol]
+                                [introduced] temp___367))
+                             (([mlw:proxy_symbol] [introduced] temp___367)
+                                <= 1))))
+                       in ())  end
+
+end

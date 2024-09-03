@@ -1,0 +1,7 @@
+20240503102430
+-c
+-x
+ada
+-gnatA
+-gnatc
+-gnates=C:\Coursework\obj\gnatprove\4dece29d.tmp

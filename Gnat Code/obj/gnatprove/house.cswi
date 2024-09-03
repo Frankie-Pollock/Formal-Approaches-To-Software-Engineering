@@ -1,0 +1,7 @@
+20240503102520
+-c
+-x
+ada
+-gnatA
+-gnatc
+-gnates=C:\Coursework\obj\gnatprove\e632c788.tmp

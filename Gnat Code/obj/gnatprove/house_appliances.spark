@@ -1,0 +1,195 @@
+{
+  "spark": [
+    {
+      "name": "house_appliances",
+      "sloc": [
+        {
+          "file": "house_appliances.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "house_appliances.UnlockLock",
+      "sloc": [
+        {
+          "file": "house_appliances.ads",
+          "line": 12
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "house_appliances.CreateFridge",
+      "sloc": [
+        {
+          "file": "house_appliances.ads",
+          "line": 20
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "session_map": {
+    " 1": "C:\\Coursework\\obj\\gnatprove\\house_appliances__unlocklock"
+  },
+  "proof": [
+    {
+      "file": "house_appliances.ads",
+      "line": 16,
+      "col": 7,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "house_appliances.UnlockLock",
+        "sloc": [
+          {
+            "file": "house_appliances.ads",
+            "line": 12
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "house_appliances.ads",
+      "check_line": 16,
+      "check_col": 7,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_POST",
+        "arg": {
+          "name": "house_appliances.UnlockLock",
+          "sloc": [
+            {
+              "file": "house_appliances.ads",
+              "line": 12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "house_appliances.UnlockLock",
+          "sloc": [
+            {
+              "file": "house_appliances.ads",
+              "line": 12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "house_appliances.UnlockLock",
+          "sloc": [
+            {
+              "file": "house_appliances.ads",
+              "line": 12
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "house_appliances.CreateFridge",
+          "sloc": [
+            {
+              "file": "house_appliances.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "house_appliances.CreateFridge",
+          "sloc": [
+            {
+              "file": "house_appliances.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "house_appliances",
+          "sloc": [
+            {
+              "file": "house_appliances.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "codepeer results": 4.32000015280209E-05,
+    "init_why_sections": 4.91200014948845E-04,
+    "gnatwhy3.run_vcs": 0.00000000000000E+00,
+    "globals (advanced)": 3.64277996122837E-02,
+    "flow analysis": 1.91680004354566E-03,
+    "marking": 1.08000000182074E-04,
+    "translation of standard": 3.15340002998710E-03,
+    "properties (advanced)": 1.90999999176711E-05,
+    "gnatwhy3.register_vcs": 0.00000000000000E+00,
+    "globals (basic)": 3.64473015069962E-02,
+    "gnatwhy3.schedule_vcs": 0.00000000000000E+00,
+    "gnatwhy3.save_session": 0.00000000000000E+00,
+    "gnatwhy3.init": 2.18750000000000E-01
+  }
+}

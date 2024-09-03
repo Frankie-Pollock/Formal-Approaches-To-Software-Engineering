@@ -1,0 +1,639 @@
+(* Module for axiomatizing type "unlocked" defined at house_appliances.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__unlocked
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type unlocked  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = unlocked,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type unlocked__ref  = { mutable unlocked__content : unlocked }
+  
+  function   unlocked__ref_unlocked__content__projection (a : unlocked__ref)
+    requires {  } ensures  {  } returns unlocked = a.unlocked__content
+  
+  meta model_projection function unlocked__ref_unlocked__content__projection
+  
+  meta inline:no function unlocked__ref_unlocked__content__projection
+  
+  function   unlocked__havoc (x : unlocked__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "unlocked" defined at house_appliances.ads:4, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__unlocked__rep
+  
+  use        House_appliances__unlocked
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = House_appliances__unlocked.unlocked,
+    predicate in_range = House_appliances__unlocked.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing type "locked" defined at house_appliances.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__locked
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type locked  
+  
+  function   first () requires { True } ensures  { True } returns int = 0
+  
+  function   last () requires { True } ensures  { True } returns int = 1
+  
+  function   in_range (x : int) requires { True } ensures  { True } returns
+     = ((first <= x) /\ (x <= last))
+  
+  clone export ada__model.Static_Discrete with axiom . type t = locked,
+    function first = first, function last = last,
+    predicate in_range = in_range
+  
+  type locked__ref  = { mutable locked__content : locked }
+  
+  function   locked__ref_locked__content__projection (a : locked__ref)
+    requires {  } ensures  {  } returns locked = a.locked__content
+  
+  meta model_projection function locked__ref_locked__content__projection
+  
+  meta inline:no function locked__ref_locked__content__projection
+  
+  function   locked__havoc (x : locked__ref) requires {  } ensures  {  }
+    returns unit
+
+end
+
+(* Module defining to_rep/of_rep for type "locked" defined at house_appliances.ads:5, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__locked__rep
+  
+  use        House_appliances__locked
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  clone export ada__model.Rep_Proj_Int with axiom . type t = House_appliances__locked.locked,
+    predicate in_range = House_appliances__locked.in_range
+  
+  meta model_projection function to_rep
+  
+  meta inline:no function to_rep
+
+end
+
+(* Module for axiomatizing the record theory associated to type "houseappliances" defined at house_appliances.ads:7, created in Why.Gen.Records.Create_Rep_Record_Theory_If_Needed *)
+module House_appliances__houseappliances__rep
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        House_appliances__unlocked
+  use        House_appliances__unlocked__rep
+  use        House_appliances__locked
+  use        House_appliances__locked__rep
+  
+  type __split_fields  = { [model_trace:.919]
+                           [name:statusUnlocked]rec__house_appliances__houseappliances__statusunlocked : House_appliances__unlocked.unlocked;
+                           [model_trace:.924]
+                           [name:statusLocked]rec__house_appliances__houseappliances__statuslocked : House_appliances__locked.locked;
+                           rec__ext__ : _gnatprove_standard.Main.__private }
+  
+  function [model_trace:.919] [name:statusUnlocked] 
+    __split_fields_rec__house_appliances__houseappliances__statusunlocked__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_appliances__unlocked.unlocked = a.rec__house_appliances__houseappliances__statusunlocked
+  
+  meta model_projection function __split_fields_rec__house_appliances__houseappliances__statusunlocked__projection
+  
+  meta inline:no function __split_fields_rec__house_appliances__houseappliances__statusunlocked__projection
+  
+  function [model_trace:.924] [name:statusLocked] 
+    __split_fields_rec__house_appliances__houseappliances__statuslocked__projection
+    (a : __split_fields) requires {  } ensures  {  } returns
+    House_appliances__locked.locked = a.rec__house_appliances__houseappliances__statuslocked
+  
+  meta model_projection function __split_fields_rec__house_appliances__houseappliances__statuslocked__projection
+  
+  meta inline:no function __split_fields_rec__house_appliances__houseappliances__statuslocked__projection
+  
+  function   __split_fields_rec__ext____projection (a : __split_fields)
+    requires {  } ensures  {  } returns
+    _gnatprove_standard.Main.__private = a.rec__ext__
+  
+  meta model_projection function __split_fields_rec__ext____projection
+  
+  meta inline:no function __split_fields_rec__ext____projection
+  
+  type __split_fields__ref  = { mutable __split_fields__content : __split_fields }
+  
+  function   __split_fields__ref___split_fields__content__projection
+    (a : __split_fields__ref) requires {  } ensures  {  } returns
+    __split_fields = a.__split_fields__content
+  
+  meta model_projection function __split_fields__ref___split_fields__content__projection
+  
+  meta inline:no function __split_fields__ref___split_fields__content__projection
+  
+  function   __split_fields__havoc (x : __split_fields__ref) requires {  }
+    ensures  {  } returns unit
+  
+  type __rep  = { __split_fields : __split_fields; attr__tag : int }
+  
+  function   __rep___split_fields__projection (a : __rep) requires {  }
+    ensures  {  } returns __split_fields = a.__split_fields
+  
+  meta model_projection function __rep___split_fields__projection
+  
+  meta inline:no function __rep___split_fields__projection
+  
+  function   __rep_attr__tag__projection (a : __rep) requires {  } ensures 
+    {  } returns int = a.attr__tag
+  
+  meta model_projection function __rep_attr__tag__projection
+  
+  meta inline:no function __rep_attr__tag__projection
+  
+  function   to_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   of_base (a : __rep) requires { True } ensures  { True } returns
+    __rep = a
+  
+  function   house_appliances__houseappliances__statusunlocked__pred
+    (a : __rep) requires { True } ensures  { True } returns  = True
+  
+  function   rec__house_appliances__houseappliances__statusunlocked_
+    (a : __rep) requires
+    { (house_appliances__houseappliances__statusunlocked__pred a) } ensures 
+    { (result
+         = a.__split_fields.rec__house_appliances__houseappliances__statusunlocked) }
+    returns House_appliances__unlocked.unlocked
+  
+  function   house_appliances__houseappliances__statuslocked__pred
+    (a : __rep) requires { True } ensures  { True } returns  = True
+  
+  function   rec__house_appliances__houseappliances__statuslocked_
+    (a : __rep) requires
+    { (house_appliances__houseappliances__statuslocked__pred a) } ensures 
+    { (result
+         = a.__split_fields.rec__house_appliances__houseappliances__statuslocked) }
+    returns House_appliances__locked.locked
+  
+  function   bool_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns
+    bool = (if
+           (((House_appliances__unlocked__rep.to_rep
+                a.__split_fields.rec__house_appliances__houseappliances__statusunlocked)
+               = (House_appliances__unlocked__rep.to_rep
+                    b.__split_fields.rec__house_appliances__houseappliances__statusunlocked))
+              /\
+              ((House_appliances__locked__rep.to_rep
+                  a.__split_fields.rec__house_appliances__houseappliances__statuslocked)
+                 = (House_appliances__locked__rep.to_rep
+                      b.__split_fields.rec__house_appliances__houseappliances__statuslocked)))
+           then True  else False)
+  
+  function   __dispatch_eq (a : __rep b : __rep) requires { True } ensures 
+    { True } returns bool
+
+end
+
+(* Module for axiomatizing type "houseappliances" defined at house_appliances.ads:7, created in Gnat2Why.Types.Translate_Type *)
+module House_appliances__houseappliances
+  
+  use export House_appliances__houseappliances__rep
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  
+  type houseappliances  = --pp_transparent_type_definition NOT IMPLEMENTED
+  
+  function   __tag () requires {  } ensures  {  } returns int
+  
+  function   value__size () requires {  } ensures  {  } returns int
+  
+  function   object__size () requires {  } ensures  {  } returns int
+  
+  function   alignment () requires {  } ensures  {  } returns int
+  
+  axiom value__size_axiom : ((value__size ) >= 0)
+  
+  axiom object__size_axiom : ((object__size ) >= 0)
+  
+  axiom alignment_axiom : ((alignment ) >= 0)
+  
+  function   house_appliances__houseappliances__statusunlocked__first__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statusunlocked__last__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statusunlocked__position 
+    () requires {  } ensures  {  } returns int
+  
+  axiom house_appliances__houseappliances__statusunlocked__first__bit_axiom : 
+  ((house_appliances__houseappliances__statusunlocked__first__bit ) >= 0)
+  
+  axiom house_appliances__houseappliances__statusunlocked__last__bit_axiom : 
+  ((house_appliances__houseappliances__statusunlocked__last__bit )
+     > (house_appliances__houseappliances__statusunlocked__first__bit ))
+  
+  axiom house_appliances__houseappliances__statusunlocked__position_axiom : 
+  ((house_appliances__houseappliances__statusunlocked__position ) >= 0)
+  
+  function   house_appliances__houseappliances__statuslocked__first__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statuslocked__last__bit 
+    () requires {  } ensures  {  } returns int
+  
+  function   house_appliances__houseappliances__statuslocked__position 
+    () requires {  } ensures  {  } returns int
+  
+  axiom house_appliances__houseappliances__statuslocked__first__bit_axiom : 
+  ((house_appliances__houseappliances__statuslocked__first__bit ) >= 0)
+  
+  axiom house_appliances__houseappliances__statuslocked__last__bit_axiom : 
+  ((house_appliances__houseappliances__statuslocked__last__bit )
+     > (house_appliances__houseappliances__statuslocked__first__bit ))
+  
+  axiom house_appliances__houseappliances__statuslocked__position_axiom : 
+  ((house_appliances__houseappliances__statuslocked__position ) >= 0)
+  
+  function   user_eq (a : houseappliances b : houseappliances) requires
+    { True } ensures  { True } returns bool
+  
+  function   dummy () requires {  } ensures  {  } returns houseappliances
+  
+  type houseappliances__ref  = { mutable houseappliances__content : houseappliances }
+  
+  function   houseappliances__ref_houseappliances__content__projection
+    (a : houseappliances__ref) requires {  } ensures  {  } returns
+    houseappliances = a.houseappliances__content
+  
+  meta model_projection function houseappliances__ref_houseappliances__content__projection
+  
+  meta inline:no function houseappliances__ref_houseappliances__content__projection
+  
+  function   houseappliances__havoc (x : houseappliances__ref) requires {  }
+    ensures  {  } returns unit
+
+end
+
+(* Module for defining a ref holding the value of variable "this" defined at house_appliances.ads:12, created in Gnat2Why.Decls.Translate_Variable *)
+module House_appliances__unlocklock__this
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_appliances__houseappliances
+  
+  val this__split_fields [model_trace:931] [model_projected]
+  [name:This] [sloc:house_appliances.ads:12]: House_appliances__houseappliances.__split_fields
+  
+  function  [sloc:house_appliances.ads:12] this__attr__tag () requires {  }
+    ensures  {  } returns int
+
+end
+
+(* Module giving axioms for type "houseappliances" defined at house_appliances.ads:7, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_appliances__houseappliances___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use        House_appliances__houseappliances
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_180) : House_appliances__houseappliances.houseappliances
+    ([mlw:proxy_symbol] [introduced] temp___is_init_176) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_177) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_178) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_179) : bool) requires
+    { True } ensures  { True } returns  = True
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol]
+    [introduced] temp___expr_181) : House_appliances__houseappliances.houseappliances
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_182) : bool)
+    requires { True } ensures  { True } returns
+     = ((House_appliances__houseappliances.attr__tag ([mlw:proxy_symbol]
+           [introduced] temp___expr_181))
+          = House_appliances__houseappliances.__tag)
+
+end
+
+(* Module giving axioms for type "unlocked" defined at house_appliances.ads:4, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_appliances__unlocked___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_appliances__unlocked
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_166) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_162) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_163) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_164) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_165) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_162) = True) \/
+          (House_appliances__unlocked.first
+             <= House_appliances__unlocked.last))
+       then
+       (House_appliances__unlocked.dynamic_property
+          House_appliances__unlocked.first House_appliances__unlocked.last
+          ([mlw:proxy_symbol] [introduced] temp___expr_166))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_167) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_168) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving axioms for type "locked" defined at house_appliances.ads:5, created in Gnat2Why.Types.Generate_Type_Completion *)
+module House_appliances__locked___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        House_appliances__locked
+  
+  function   dynamic_invariant
+    (([mlw:proxy_symbol] [introduced] temp___expr_173) : int
+    ([mlw:proxy_symbol] [introduced] temp___is_init_169) : bool
+    ([mlw:proxy_symbol] [introduced] temp___skip_constant_170) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_toplevel_171) : bool
+    ([mlw:proxy_symbol] [introduced] temp___do_typ_inv_172) : bool) requires
+    { True } ensures  { True } returns
+     = (if
+       ((([mlw:proxy_symbol] [introduced] temp___is_init_169) = True) \/
+          (House_appliances__locked.first <= House_appliances__locked.last))
+       then
+       (House_appliances__locked.dynamic_property
+          House_appliances__locked.first House_appliances__locked.last
+          ([mlw:proxy_symbol] [introduced] temp___expr_173))
+       )
+  
+  function   default_initial_assumption
+    (([mlw:proxy_symbol] [introduced] temp___expr_174) : int
+    ([mlw:proxy_symbol] [introduced] temp___skip_top_level_175) : bool)
+    requires { True } ensures  { True } returns  = True
+
+end
+
+(* Module giving an empty axiom for the entity "this" defined at house_appliances.ads:12, created in Gnat2Why.Driver.Translate_Entity.Generate_Empty_Axiom_Theory *)
+module House_appliances__unlocklock__this___axiom
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  
+  
+
+end
+
+(* Module for checking contracts and absence of run-time errors in subprogram "unlocklock" defined at house_appliances.ads:12, created in Gnat2Why.Subprograms.Generate_VCs_For_Subprogram *)
+module House_appliances__unlocklock__subprogram_def
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Main
+  use        _gnatprove_standard.Boolean
+  use        House_appliances__unlocklock__this
+  use        House_appliances__houseappliances
+  use        House_appliances__houseappliances___axiom
+  use        House_appliances__unlocked
+  use        House_appliances__unlocked__rep
+  use        House_appliances__locked
+  use        House_appliances__locked__rep
+  use        House_appliances__unlocked___axiom
+  use        House_appliances__locked___axiom
+  use        House_appliances__houseappliances___axiom
+  use        House_appliances__unlocklock__this___axiom
+  
+  function [GP_Subp:house_appliances.ads:12] [sloc:house_appliances.ads:12]
+    def (__void_param : unit) requires { True } ensures 
+    { ([sloc:house_appliances.ads:16] ([GP_Reason:VC_POSTCONDITION]
+                                      [comment:      ((This.statusUnlocked = Fridge and This.statusLocked = Oven) or       ^ house_appliances.ads:16:7:VC_POSTCONDITION]
+                                      [GP_Shape:pragargs__or]
+                                      [GP_Sloc:house_appliances.ads:16:7]
+                                      [model_vc_post]
+                                      [GP_Id:0] ([GP_Sloc:house_appliances.ads:16:7]
+                                                [GP_Pretty_Ada:3198] (
+                                                (((House_appliances__unlocked__rep.to_rep
+                                                     ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                                    = 0) /\
+                                                   ((House_appliances__locked__rep.to_rep
+                                                       ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+                                                      = 1)) \/
+                                                  (((House_appliances__unlocked__rep.to_rep
+                                                       ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                                      = 1) /\
+                                                     ((House_appliances__locked__rep.to_rep
+                                                         ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+                                                        = 0)))))) } returns
+     = (* Assume dynamic invariants of inputs of the subprogram house_appliances.ads:12 *);
+        assume
+        { (House_appliances__houseappliances___axiom.dynamic_invariant
+             --pp_record_aggregate NOT IMPLEMENTED True False True True) };
+        (* Assume moved pointers in outputs of the subprogram house_appliances.ads:12 *);
+        (* Check for RTE in the Pre of the subprogram house_appliances.ads:12 *);
+        abstract ensures
+        { True } begin  (let _ = True in ())  end;
+        (* Assume Pre of the subprogram house_appliances.ads:12 *);
+        assume
+        { ([GP_Pretty_Ada:3168] (((House_appliances__unlocked__rep.to_rep
+                                     ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                    = 0) \/
+                                   ((House_appliances__unlocked__rep.to_rep
+                                       ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                      = 1))) };
+        (try
+        ();
+          ([GP_Sloc:house_appliances.adb:6:7] ([sloc:house_appliances.adb:6] 
+                                              (if
+                                              ([sloc:house_appliances.adb:6] ([branch_id=829]
+                                              _gnatprove_standard.Main.spark__branch
+                                              :=
+                                              ((House_appliances__unlocked__rep.to_rep
+                                                  ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                                 = 0)));
+                                              ([branch_id=829] _gnatprove_standard.Main.spark__branch).bool__content
+                                              then
+                                              ();
+                                              ([GP_Sloc:house_appliances.adb:8:30] 
+                                              ([sloc:house_appliances.adb:8] (let ([mlw:proxy_symbol]
+                                              [introduced] temp___195) =
+                                              (let ([mlw:proxy_symbol]
+                                                [introduced] temp___194) =
+                                                ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                in abstract ensures
+                                                { True } begin  (let _ =
+                                                               ([mlw:proxy_symbol]
+                                                                 [introduced] temp___194).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked
+                                                               in ())  end;
+                                                --pp_record_update NOT IMPLEMENTED)
+                                              in (
+                                              House_appliances__unlocklock__this.this__split_fields
+                                              :=
+                                              ([mlw:proxy_symbol]
+                                                [introduced] temp___195).House_appliances__houseappliances.__split_fields))));
+                                              ([GP_Sloc:house_appliances.adb:9:28] 
+                                              ([sloc:house_appliances.adb:9] (let ([mlw:proxy_symbol]
+                                              [introduced] temp___198) =
+                                              (let ([mlw:proxy_symbol]
+                                                [introduced] temp___197) =
+                                                ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                in abstract ensures
+                                                { True } begin  (let _ =
+                                                               ([mlw:proxy_symbol]
+                                                                 [introduced] temp___197).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked
+                                                               in ())  end;
+                                                --pp_record_update NOT IMPLEMENTED)
+                                              in (
+                                              House_appliances__unlocklock__this.this__split_fields
+                                              :=
+                                              ([mlw:proxy_symbol]
+                                                [introduced] temp___198).House_appliances__houseappliances.__split_fields))))
+                                               else
+                                              ([GP_Sloc:house_appliances.adb:10:7] 
+                                              (if
+                                              ([sloc:house_appliances.adb:10] ([branch_id=847]
+                                              _gnatprove_standard.Main.spark__branch
+                                              :=
+                                              ((House_appliances__unlocked__rep.to_rep
+                                                  ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                                 = 1)));
+                                              ([branch_id=847] _gnatprove_standard.Main.spark__branch).bool__content
+                                              then
+                                              ();
+                                              ([GP_Sloc:house_appliances.adb:12:30] 
+                                              ([sloc:house_appliances.adb:12] (let ([mlw:proxy_symbol]
+                                              [introduced] temp___204) =
+                                              (let ([mlw:proxy_symbol]
+                                                [introduced] temp___203) =
+                                                ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                in abstract ensures
+                                                { True } begin  (let _ =
+                                                               ([mlw:proxy_symbol]
+                                                                 [introduced] temp___203).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked
+                                                               in ())  end;
+                                                --pp_record_update NOT IMPLEMENTED)
+                                              in (
+                                              House_appliances__unlocklock__this.this__split_fields
+                                              :=
+                                              ([mlw:proxy_symbol]
+                                                [introduced] temp___204).House_appliances__houseappliances.__split_fields))));
+                                              ([GP_Sloc:house_appliances.adb:13:28] 
+                                              ([sloc:house_appliances.adb:13] (let ([mlw:proxy_symbol]
+                                              [introduced] temp___207) =
+                                              (let ([mlw:proxy_symbol]
+                                                [introduced] temp___206) =
+                                                ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                in abstract ensures
+                                                { True } begin  (let _ =
+                                                               ([mlw:proxy_symbol]
+                                                                 [introduced] temp___206).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked
+                                                               in ())  end;
+                                                --pp_record_update NOT IMPLEMENTED)
+                                              in (
+                                              House_appliances__unlocklock__this.this__split_fields
+                                              :=
+                                              ([mlw:proxy_symbol]
+                                                [introduced] temp___207).House_appliances__houseappliances.__split_fields))))
+                                               else
+                                              ();
+                                              ([GP_Sloc:house_appliances.adb:16:30] 
+                                              ([sloc:house_appliances.adb:16] (let ([mlw:proxy_symbol]
+                                              [introduced] temp___201) =
+                                              (let ([mlw:proxy_symbol]
+                                                [introduced] temp___200) =
+                                                ( --pp_record_aggregate NOT IMPLEMENTED)
+                                                in abstract ensures
+                                                { True } begin  (let _ =
+                                                               ([mlw:proxy_symbol]
+                                                                 [introduced] temp___200).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked
+                                                               in ())  end;
+                                                --pp_record_update NOT IMPLEMENTED)
+                                              in (
+                                              House_appliances__unlocklock__this.this__split_fields
+                                              :=
+                                              ([mlw:proxy_symbol]
+                                                [introduced] temp___201).House_appliances__houseappliances.__split_fields)))))))));
+          raise Return__exc with | Return__exc  -> ());
+        abstract ensures
+        { True } begin  (let _ =
+                       (_gnatprove_standard.Boolean.orb
+                          (_gnatprove_standard.Boolean.andb
+                             ((House_appliances__unlocked__rep.to_rep
+                                 ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                = 0)
+                             ((House_appliances__locked__rep.to_rep
+                                 ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+                                = 1))
+                          (_gnatprove_standard.Boolean.andb
+                             ((House_appliances__unlocked__rep.to_rep
+                                 ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                                = 1)
+                             ((House_appliances__locked__rep.to_rep
+                                 ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statuslocked)
+                                = 0)))
+                       in ())  end
+
+end
+
+(* Module for checking LSP for subprogram "unlocklock" defined at house_appliances.ads:12, created in Gnat2Why.Subprograms.Generate_VCs_For_LSP *)
+module House_appliances__unlocklock__subprogram_lsp
+  
+  use import _gnatprove_standard.Main
+  use import int.Int
+  use import int.Int
+  use        _gnatprove_standard.Boolean
+  use        House_appliances__unlocklock__this
+  use        House_appliances__houseappliances
+  use        House_appliances__houseappliances___axiom
+  use        House_appliances__unlocked
+  use        House_appliances__unlocked__rep
+  use        House_appliances__unlocked___axiom
+  use        House_appliances__locked___axiom
+  use        House_appliances__houseappliances___axiom
+  use        House_appliances__unlocklock__this___axiom
+  
+  function [GP_Subp:house_appliances.ads:12] [sloc:house_appliances.ads:12]
+    def (__void_param : unit) requires { True } ensures  { True } returns
+     = assume
+        { (House_appliances__houseappliances___axiom.dynamic_invariant
+             --pp_record_aggregate NOT IMPLEMENTED True False True True) };
+        abstract ensures
+        { True } begin  (let _ =
+                       (_gnatprove_standard.Boolean.orb
+                          ((House_appliances__unlocked__rep.to_rep
+                              ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                             = 0)
+                          ((House_appliances__unlocked__rep.to_rep
+                              ( --pp_record_aggregate NOT IMPLEMENTED).House_appliances__houseappliances.__split_fields.House_appliances__houseappliances.rec__house_appliances__houseappliances__statusunlocked)
+                             = 1))
+                       in ())  end
+
+end

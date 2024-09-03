@@ -1,0 +1,263 @@
+{
+  "spark": [
+    {
+      "name": "house_exterior",
+      "sloc": [
+        {
+          "file": "house_exterior.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "house_exterior.UpdateLocked",
+      "sloc": [
+        {
+          "file": "house_exterior.ads",
+          "line": 10
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "house_exterior.UpdateUnlocked",
+      "sloc": [
+        {
+          "file": "house_exterior.ads",
+          "line": 16
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "house_exterior.CreateExteriors",
+      "sloc": [
+        {
+          "file": "house_exterior.ads",
+          "line": 20
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "session_map": {
+    " 1": "C:\\Coursework\\obj\\gnatprove\\house_exterior__updatelocked",
+    " 2": "C:\\Coursework\\obj\\gnatprove\\house_exterior__updateunlocked"
+  },
+  "proof": [
+    {
+      "file": "house_exterior.ads",
+      "line": 12,
+      "col": 20,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "house_exterior.UpdateLocked",
+        "sloc": [
+          {
+            "file": "house_exterior.ads",
+            "line": 10
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "house_exterior.ads",
+      "check_line": 12,
+      "check_col": 20,
+      "session_dir": 1,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    },
+    {
+      "file": "house_exterior.ads",
+      "line": 18,
+      "col": 20,
+      "rule": "VC_POSTCONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "house_exterior.UpdateUnlocked",
+        "sloc": [
+          {
+            "file": "house_exterior.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Valid",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "house_exterior.ads",
+      "check_line": 18,
+      "check_col": 20,
+      "session_dir": 2,
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 0.00000000000000E+00
+        }
+      }
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "house_exterior",
+          "sloc": [
+            {
+              "file": "house_exterior.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "house_exterior.CreateExteriors",
+          "sloc": [
+            {
+              "file": "house_exterior.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "house_exterior.CreateExteriors",
+          "sloc": [
+            {
+              "file": "house_exterior.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "house_exterior.UpdateUnlocked",
+          "sloc": [
+            {
+              "file": "house_exterior.ads",
+              "line": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "house_exterior.UpdateUnlocked",
+          "sloc": [
+            {
+              "file": "house_exterior.ads",
+              "line": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "house_exterior.UpdateLocked",
+          "sloc": [
+            {
+              "file": "house_exterior.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "house_exterior.UpdateLocked",
+          "sloc": [
+            {
+              "file": "house_exterior.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "codepeer results": 4.09999993280508E-05,
+    "init_why_sections": 4.68799989903346E-04,
+    "gnatwhy3.run_vcs": 0.00000000000000E+00,
+    "globals (advanced)": 3.49875018000603E-02,
+    "flow analysis": 1.54309999197721E-03,
+    "marking": 1.07300002127886E-04,
+    "translation of standard": 3.28710000030696E-03,
+    "properties (advanced)": 1.99999994947575E-05,
+    "gnatwhy3.register_vcs": 0.00000000000000E+00,
+    "globals (basic)": 3.57894003391266E-02,
+    "gnatwhy3.schedule_vcs": 0.00000000000000E+00,
+    "gnatwhy3.save_session": 0.00000000000000E+00,
+    "gnatwhy3.init": 2.34375000000000E-01
+  }
+}

@@ -1,0 +1,471 @@
+module House_exterior__exteriorstatus
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type exteriorstatus
+  
+  val function first : int
+    ensures { result = (0 : int) }
+  
+  val function last : int
+    ensures { result = (1 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = exteriorstatus,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type exteriorstatus__ref = {
+                            mutable exteriorstatus__content : exteriorstatus
+                            }
+  
+  function exteriorstatus__ref_exteriorstatus__content__projection (a: exteriorstatus__ref) : exteriorstatus =
+    a.exteriorstatus__content
+  
+  meta "model_projection" function exteriorstatus__ref_exteriorstatus__content__projection
+  
+  meta "inline:no" function exteriorstatus__ref_exteriorstatus__content__projection
+  
+  val exteriorstatus__havoc (x: exteriorstatus__ref) : unit
+    writes { x }
+end
+
+module House_exterior__exteriorstatus__rep
+  use House_exterior__exteriorstatus as House_exterior__exteriorstatus
+  use _gnatprove_standard.Main
+  use int.Int
+  clone export ada__model.Rep_Proj_Int with
+    axiom .,
+    type t = House_exterior__exteriorstatus.exteriorstatus,
+    predicate in_range = House_exterior__exteriorstatus.in_range
+  
+  meta "model_projection" function to_rep
+  
+  meta "inline:no" function to_rep
+end
+
+module House_exterior__houseexterior__rep
+  use _gnatprove_standard.Main
+  use int.Int
+  use _gnatprove_standard.Main as Main
+  use House_exterior__exteriorstatus as House_exterior__exteriorstatus
+  use House_exterior__exteriorstatus__rep as House_exterior__exteriorstatus__rep
+  
+  type __split_fields = {
+                       rec__house_exterior__houseexterior__status :
+                         House_exterior__exteriorstatus.exteriorstatus;
+                       rec__ext__ : Main.__private
+                       }
+  
+  function __split_fields_rec__house_exterior__houseexterior__status__projection (a: __split_fields) : 
+    House_exterior__exteriorstatus.exteriorstatus =
+    a.rec__house_exterior__houseexterior__status
+  
+  meta "model_projection" function __split_fields_rec__house_exterior__houseexterior__status__projection
+  
+  meta "inline:no" function __split_fields_rec__house_exterior__houseexterior__status__projection
+  
+  function __split_fields_rec__ext____projection (a: __split_fields) : 
+    Main.__private =
+    a.rec__ext__
+  
+  meta "model_projection" function __split_fields_rec__ext____projection
+  
+  meta "inline:no" function __split_fields_rec__ext____projection
+  
+  type __split_fields__ref = {
+                            mutable __split_fields__content : __split_fields
+                            }
+  
+  function __split_fields__ref___split_fields__content__projection (a: __split_fields__ref) : __split_fields =
+    __split_fields__content a
+  
+  meta "model_projection" function __split_fields__ref___split_fields__content__projection
+  
+  meta "inline:no" function __split_fields__ref___split_fields__content__projection
+  
+  val __split_fields__havoc (x: __split_fields__ref) : unit
+    writes { x }
+  
+  type __rep = { __split_fields : __split_fields; attr__tag : int }
+  
+  function __rep___split_fields__projection (a: __rep) : __split_fields =
+    __split_fields a
+  
+  meta "model_projection" function __rep___split_fields__projection
+  
+  meta "inline:no" function __rep___split_fields__projection
+  
+  function __rep_attr__tag__projection (a: __rep) : int = a.attr__tag
+  
+  meta "model_projection" function __rep_attr__tag__projection
+  
+  meta "inline:no" function __rep_attr__tag__projection
+  
+  function to_base (a: __rep) : __rep = a
+  
+  val to_base (a: __rep) : __rep
+    ensures { result = (to_base (a : __rep)) }
+  
+  function of_base (a: __rep) : __rep = a
+  
+  val of_base (a: __rep) : __rep
+    ensures { result = (of_base (a : __rep)) }
+  
+  predicate house_exterior__houseexterior__status__pred (a: __rep) = true
+  
+  val house_exterior__houseexterior__status__pred (a: __rep) : bool
+    ensures { result
+                <->
+                (house_exterior__houseexterior__status__pred (a : __rep)) }
+  
+  val rec__house_exterior__houseexterior__status_ (a: __rep) : House_exterior__exteriorstatus.exteriorstatus
+    requires { house_exterior__houseexterior__status__pred a }
+    ensures { (result
+                 = ((__split_fields a).rec__house_exterior__houseexterior__status)) }
+  
+  function bool_eq (a: __rep) (b: __rep) : bool =
+    if ((House_exterior__exteriorstatus__rep.to_rep
+           ((__split_fields a).rec__house_exterior__houseexterior__status))
+          = (House_exterior__exteriorstatus__rep.to_rep
+               ((__split_fields b).rec__house_exterior__houseexterior__status))) then
+      True
+    else False
+  
+  val bool_eq (a: __rep) (b: __rep) : bool
+    ensures { result = ((bool_eq (a : __rep)) (b : __rep)) }
+  
+  val function __dispatch_eq (a: __rep) (b: __rep) : bool
+end
+
+module House_exterior__houseexterior
+  use export House_exterior__houseexterior__rep
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type houseexterior = __rep
+  
+  val function __tag : int
+  
+  val function value__size : int
+  
+  val function object__size : int
+  
+  val function alignment : int
+  
+  axiom value__size_axiom: (value__size >= (0 : int))
+  
+  axiom object__size_axiom: (object__size >= (0 : int))
+  
+  axiom alignment_axiom: (alignment >= (0 : int))
+  
+  val function house_exterior__houseexterior__status__first__bit : int
+  
+  val function house_exterior__houseexterior__status__last__bit : int
+  
+  val function house_exterior__houseexterior__status__position : int
+  
+  axiom house_exterior__houseexterior__status__first__bit_axiom:
+    (house_exterior__houseexterior__status__first__bit >= (0 : int))
+  
+  axiom house_exterior__houseexterior__status__last__bit_axiom:
+    (house_exterior__houseexterior__status__last__bit
+       > house_exterior__houseexterior__status__first__bit)
+  
+  axiom house_exterior__houseexterior__status__position_axiom:
+    (house_exterior__houseexterior__status__position >= (0 : int))
+  
+  val function user_eq (a: houseexterior) (b: houseexterior) : bool
+  
+  val function dummy : houseexterior
+  
+  type houseexterior__ref = {
+                           mutable houseexterior__content : houseexterior
+                           }
+  
+  function houseexterior__ref_houseexterior__content__projection (a: houseexterior__ref) : houseexterior =
+    a.houseexterior__content
+  
+  meta "model_projection" function houseexterior__ref_houseexterior__content__projection
+  
+  meta "inline:no" function houseexterior__ref_houseexterior__content__projection
+  
+  val houseexterior__havoc (x: houseexterior__ref) : unit
+    writes { x }
+end
+
+module House_exterior__updatelocked__this
+  use _gnatprove_standard.Main
+  use int.Int
+  use House_exterior__houseexterior as House_exterior__houseexterior
+  
+  val this__split_fields : House_exterior__houseexterior.__split_fields__ref
+  
+  val function this__attr__tag : int
+end
+
+module House_exterior__houseexterior___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use House_exterior__houseexterior as House_exterior__houseexterior
+  
+  predicate dynamic_invariant (temp___expr_173: House_exterior__houseexterior.houseexterior) (temp___is_init_169: bool) (temp___skip_constant_170: bool) (temp___do_toplevel_171: bool) (temp___do_typ_inv_172: bool) =
+    true
+  
+  val dynamic_invariant (temp___expr_173: House_exterior__houseexterior.houseexterior) (temp___is_init_169: bool) (temp___skip_constant_170: bool) (temp___do_toplevel_171: bool) (temp___do_typ_inv_172: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant
+                       (temp___expr_173 :
+                          House_exterior__houseexterior.houseexterior))
+                      (temp___is_init_169 : bool))
+                     (temp___skip_constant_170 : bool))
+                    (temp___do_toplevel_171 : bool))
+                   (temp___do_typ_inv_172 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_174: House_exterior__houseexterior.houseexterior) (temp___skip_top_level_175: bool) =
+    ((House_exterior__houseexterior.attr__tag temp___expr_174)
+       = House_exterior__houseexterior.__tag)
+  
+  val default_initial_assumption (temp___expr_174: House_exterior__houseexterior.houseexterior) (temp___skip_top_level_175: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption
+                    (temp___expr_174 :
+                       House_exterior__houseexterior.houseexterior))
+                   (temp___skip_top_level_175 : bool)) }
+end
+
+module House_exterior__exteriorstatus___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use House_exterior__exteriorstatus as House_exterior__exteriorstatus
+  
+  predicate dynamic_invariant (temp___expr_166: int) (temp___is_init_162: bool) (temp___skip_constant_163: bool) (temp___do_toplevel_164: bool) (temp___do_typ_inv_165: bool) =
+    if ((temp___is_init_162 = True) \/
+          (House_exterior__exteriorstatus.first
+             <= House_exterior__exteriorstatus.last)) then
+      (((House_exterior__exteriorstatus.dynamic_property
+           House_exterior__exteriorstatus.first)
+          House_exterior__exteriorstatus.last)
+         temp___expr_166)
+    else true
+  
+  val dynamic_invariant (temp___expr_166: int) (temp___is_init_162: bool) (temp___skip_constant_163: bool) (temp___do_toplevel_164: bool) (temp___do_typ_inv_165: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_166 : int))
+                      (temp___is_init_162 : bool))
+                     (temp___skip_constant_163 : bool))
+                    (temp___do_toplevel_164 : bool))
+                   (temp___do_typ_inv_165 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_167: int) (temp___skip_top_level_168: bool) =
+    true
+  
+  val default_initial_assumption (temp___expr_167: int) (temp___skip_top_level_168: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption (temp___expr_167 : int))
+                   (temp___skip_top_level_168 : bool)) }
+end
+
+module House_exterior__updatelocked__this___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module House_exterior__updatelocked__subprogram_def
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use House_exterior__updatelocked__this as House_exterior__updatelocked__this
+  use House_exterior__houseexterior as House_exterior__houseexterior
+  use House_exterior__houseexterior___axiom as House_exterior__houseexterior___axiom
+  use House_exterior__exteriorstatus as House_exterior__exteriorstatus
+  use House_exterior__exteriorstatus__rep as House_exterior__exteriorstatus__rep
+  use House_exterior__exteriorstatus___axiom as House_exterior__exteriorstatus___axiom
+  use House_exterior__houseexterior___axiom as House_exterior__houseexterior___axiom
+  use House_exterior__updatelocked__this___axiom as House_exterior__updatelocked__this___axiom
+  
+  let def (__void_param : unit)
+    requires { [#"house_exterior.ads" 10 0 0] true }
+    ensures { [#"house_exterior.ads" 10 0 0]
+              [#"house_exterior.ads" 12 0 0]
+              [@GP_Reason:VC_POSTCONDITION]
+              [@GP_Shape:pragargs__cmp]
+              [@model_vc_post]
+              [@comment:     Post'Class => This.status = Shut;                    ^ house_exterior.ads:12:20:VC_POSTCONDITION]
+              [@GP_Id:0]
+              [@GP_Sloc:house_exterior.ads:12:20]
+              [@GP_Pretty_Ada:3138]
+              [@GP_Sloc:house_exterior.ads:12:20]
+              ((House_exterior__exteriorstatus__rep.to_rep
+                  ((House_exterior__houseexterior.__split_fields
+                       { House_exterior__houseexterior.__split_fields =
+                           (House_exterior__houseexterior.__split_fields__content
+                               House_exterior__updatelocked__this.this__split_fields) ;
+                         House_exterior__houseexterior.attr__tag =
+                           House_exterior__updatelocked__this.this__attr__tag }).
+                     House_exterior__houseexterior.rec__house_exterior__houseexterior__status))
+                 = (1 : int)) }
+  = [@vc:divergent]
+    (([@GNAT-comment:Assume dynamic invariants of inputs of the subprogram house_exterior.ads:10]
+      ());
+     assume {
+       ((((House_exterior__houseexterior___axiom.dynamic_invariant
+             { House_exterior__houseexterior.__split_fields =
+                 (House_exterior__houseexterior.__split_fields__content
+                     House_exterior__updatelocked__this.this__split_fields) ;
+               House_exterior__houseexterior.attr__tag =
+                 House_exterior__updatelocked__this.this__attr__tag })
+            True)
+           False)
+          True)
+         True };
+     ([@GNAT-comment:Assume moved pointers in outputs of the subprogram house_exterior.ads:10]
+      ());
+     ([@GNAT-comment:Check for RTE in the Pre of the subprogram house_exterior.ads:10]
+      ());
+     ([@GNAT-comment:Assume Pre of the subprogram house_exterior.ads:10] ());
+     assume {
+       [@GP_Pretty_Ada:3126]
+       ((House_exterior__exteriorstatus__rep.to_rep
+           ((House_exterior__houseexterior.__split_fields
+                { House_exterior__houseexterior.__split_fields =
+                    (House_exterior__houseexterior.__split_fields__content
+                        House_exterior__updatelocked__this.this__split_fields) ;
+                  House_exterior__houseexterior.attr__tag =
+                    House_exterior__updatelocked__this.this__attr__tag }).
+              House_exterior__houseexterior.rec__house_exterior__houseexterior__status))
+          = (0 : int)) };
+     (try
+        ([@GP_Sloc:house_exterior.adb:6:19]
+         [#"house_exterior.adb" 6 0 0]
+         (let temp___188 =
+            let temp___187 =
+              { House_exterior__houseexterior.__split_fields =
+                  (House_exterior__houseexterior.__split_fields__content
+                      House_exterior__updatelocked__this.this__split_fields) ;
+                House_exterior__houseexterior.attr__tag =
+                  House_exterior__updatelocked__this.this__attr__tag } in
+            ([#"house_exterior.adb" 6 0 0]
+             (begin
+                ensures { true }
+                let _ =
+                  let _ =
+                    (House_exterior__houseexterior.__split_fields temp___187).
+                      House_exterior__houseexterior.rec__house_exterior__houseexterior__status in
+                  () in
+                ()
+              end));
+            ({ temp___187 with
+               House_exterior__houseexterior.__split_fields =
+                 ({ (House_exterior__houseexterior.__split_fields temp___187) with
+                    House_exterior__houseexterior.rec__house_exterior__houseexterior__status =
+                      (House_exterior__exteriorstatus__rep.of_rep (1 : int)) }) }) in
+          [#"house_exterior.adb" 6 0 0]
+          (House_exterior__updatelocked__this.this__split_fields.House_exterior__houseexterior.__split_fields__content <-
+             (House_exterior__houseexterior.__split_fields temp___188))));
+        (raise Return__exc)
+      with Return__exc -> ()
+      end))
+end
+
+module House_exterior__updatelocked__subprogram_lsp
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use House_exterior__updatelocked__this as House_exterior__updatelocked__this
+  use House_exterior__houseexterior as House_exterior__houseexterior
+  use House_exterior__houseexterior___axiom as House_exterior__houseexterior___axiom
+  use House_exterior__exteriorstatus as House_exterior__exteriorstatus
+  use House_exterior__exteriorstatus__rep as House_exterior__exteriorstatus__rep
+  use House_exterior__exteriorstatus___axiom as House_exterior__exteriorstatus___axiom
+  use House_exterior__houseexterior___axiom as House_exterior__houseexterior___axiom
+  use House_exterior__updatelocked__this___axiom as House_exterior__updatelocked__this___axiom
+  
+  let def (__void_param : unit)
+    requires { [#"house_exterior.ads" 10 0 0] true }
+    ensures { [#"house_exterior.ads" 10 0 0] true }
+  = [@vc:divergent]
+    (([#"house_exterior.ads" 10 0 0]
+      assume {
+        [#"house_exterior.ads" 10 0 0]
+        (((((House_exterior__houseexterior___axiom.dynamic_invariant
+               { House_exterior__houseexterior.__split_fields =
+                   (House_exterior__houseexterior.__split_fields__content
+                       House_exterior__updatelocked__this.this__split_fields) ;
+                 House_exterior__houseexterior.attr__tag =
+                   House_exterior__updatelocked__this.this__attr__tag })
+              True)
+             False)
+            True)
+           True) });
+     ([#"house_exterior.ads" 10 0 0]
+      (begin
+         ensures { true }
+         let _ =
+           let _ =
+             ((House_exterior__exteriorstatus__rep.to_rep
+                 ((House_exterior__houseexterior.__split_fields
+                      { House_exterior__houseexterior.__split_fields =
+                          (House_exterior__houseexterior.__split_fields__content
+                              House_exterior__updatelocked__this.this__split_fields) ;
+                        House_exterior__houseexterior.attr__tag =
+                          House_exterior__updatelocked__this.this__attr__tag }).
+                    House_exterior__houseexterior.rec__house_exterior__houseexterior__status))
+                = (0 : int)) in
+           () in
+         ()
+       end));
+     ([@GNAT-comment:Checking absence of RTE in class-wide postcondition] ());
+     ([#"house_exterior.ads" 10 0 0]
+      (val _f : unit
+         writes { House_exterior__updatelocked__this.this__split_fields } in
+       _f));
+     ([#"house_exterior.ads" 10 0 0]
+      assume {
+        [#"house_exterior.ads" 10 0 0]
+        (((((House_exterior__houseexterior___axiom.dynamic_invariant
+               { House_exterior__houseexterior.__split_fields =
+                   (House_exterior__houseexterior.__split_fields__content
+                       House_exterior__updatelocked__this.this__split_fields) ;
+                 House_exterior__houseexterior.attr__tag =
+                   House_exterior__updatelocked__this.this__attr__tag })
+              True)
+             True)
+            True)
+           True) });
+     ([#"house_exterior.ads" 10 0 0]
+      (begin
+         ensures { true }
+         let _ =
+           let _ =
+             ((House_exterior__exteriorstatus__rep.to_rep
+                 ((House_exterior__houseexterior.__split_fields
+                      { House_exterior__houseexterior.__split_fields =
+                          (House_exterior__houseexterior.__split_fields__content
+                              House_exterior__updatelocked__this.this__split_fields) ;
+                        House_exterior__houseexterior.attr__tag =
+                          House_exterior__updatelocked__this.this__attr__tag }).
+                    House_exterior__houseexterior.rec__house_exterior__houseexterior__status))
+                = (1 : int)) in
+           () in
+         ()
+       end)))
+end
